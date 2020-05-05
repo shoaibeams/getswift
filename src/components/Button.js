@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: colors.DODGER_BLUE,
+    backgroundColor: colors.PRIMARY,
     marginBottom: 12,
     paddingVertical: 12,
     borderRadius: 4,

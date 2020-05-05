@@ -14,7 +14,7 @@ import {useForm} from 'react-hook-form';
 import {signUpUser} from '../redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 
-const SignUpScreen = ({navigation}) => {
+const ResetPasswordScreen = ({navigation}) => {
   const {register, handleSubmit, setValue, errors, getValues} = useForm();
   const [error, setError] = useState('');
   const dispatch = useDispatch();
@@ -90,7 +90,7 @@ const SignUpScreen = ({navigation}) => {
   };
 
   const handleEmailChange = email => {
-    setValue('email', email);
+    setValue('email', email.trim());
   };
 
   const handlePasswordChange = password => {
@@ -165,4 +165,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUpScreen;
+export default ResetPasswordScreen;

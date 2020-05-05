@@ -15,9 +15,11 @@ const CustomInput = ({style, ...otherProps}) => {
 const styles = StyleSheet.create({
   textInput: {
     height: 40,
+    width: '100%',
     borderColor: colors.SILVER,
     borderBottomWidth: StyleSheet.hairlineWidth,
     marginBottom: 20,
+    textAlign: 'left',
   },
 });
 

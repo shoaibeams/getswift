@@ -36,7 +36,10 @@ const HomeScreen = ({navigation}) => {
     <Container>
       <Header>
         <Left>
-          <Button transparent onPress={() => navigation.toggleDrawer()}>
+          <Button
+            transparent
+            // onPress={() => navigation.toggleDrawer()}
+          >
             <Icon name="menu" />
           </Button>
         </Left>
@@ -49,7 +52,7 @@ const HomeScreen = ({navigation}) => {
         <Card>
           <CardItem>
             <Body>
-              <Text>Chat App to talk some awesome people!</Text>
+              <Text>Find all the orders here.</Text>
             </Body>
           </CardItem>
         </Card>
@@ -58,16 +61,18 @@ const HomeScreen = ({navigation}) => {
           rounded
           dark
           style={{marginTop: 10}}
-          onPress={() => this.props.navigation.navigate('Chat')}>
-          <Text>Chat With People</Text>
+          // onPress={() => this.props.navigation.navigate('Chat')}
+        >
+          <Text>Track Order</Text>
         </Button>
         <Button
           full
           rounded
           primary
           style={{marginTop: 10}}
-          onPress={() => this.props.navigation.navigate('Profile')}>
-          <Text>Goto Profiles</Text>
+          // onPress={() => this.props.navigation.navigate('Profile')}
+        >
+          <Text>Go To My Account</Text>
         </Button>
       </Content>
     </Container>

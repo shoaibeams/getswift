@@ -11,6 +11,10 @@ import SignUpScreen from './screens/SignUpScreen';
 import store from './redux/store';
 import AsyncStorage from '@react-native-community/async-storage';
 import SideBar from './components/SideBar';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import colors from './config/colors';
+import {color} from 'react-native-reanimated';
+import ResetPasswordScreen from './screens/SignUpScreen';
 
 const App = () => {
   const Stack = createStackNavigator();
@@ -19,7 +23,7 @@ const App = () => {
 
   useEffect(() => {
     SplashScreen.hide();
-    // AsyncStorage.clear();
+    AsyncStorage.clear();
     async function getToken() {
       const token = await AsyncStorage.getItem('api_token');
       console.log('token :>> ', token);
@@ -31,10 +35,36 @@ const App = () => {
   return (
     <Provider store={store}>
       <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={HomeScreen} />
-          {/* <Drawer.Screen name="Notifications" component={NotificationsScreen} /> */}
-        </Drawer.Navigator>
+        <Stack.Navigator>
+          {!token && (
+            <>
+              <Stack.Screen
+                name="Authentication"
+                component={LoginScreen}
+                options={{
+                  headerLeft: null,
+                  headerStyle: {
+                    backgroundColor: colors.PRIMARY,
+                  },
+                  headerTitleStyle: {
+                    color: colors.WHITE,
+                  },
+                }}
+              />
+
+              <Stack.Screen
+                name="ResetPassword"
+                component={ResetPasswordScreen}
+                options={{headerLeft: null}}
+              />
+            </>
+          )}
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{headerLeft: null}}
+          />
+        </Stack.Navigator>
       </NavigationContainer>
     </Provider>
   );

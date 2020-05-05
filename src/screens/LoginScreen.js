@@ -1,5 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, Image, View, StatusBar, Text} from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  View,
+  StatusBar,
+  Text,
+  Alert,
+  Linking,
+} from 'react-native';
 import Button from '../components/Button';
 import CustomInput from '../components/CustomInput';
 import imageLogo from '../assets/images/logo.png';
@@ -16,10 +24,24 @@ const LoginScreen = ({navigation}) => {
 
   const onSubmit = async formData => {
     setError('');
+    // Alert.alert('Form Data', formData);
+    console.log('formData', formData);
     dispatch(loginUser(formData));
   };
 
   useEffect(() => {
+    if (userData) {
+      if (userData.error) {
+        // Alert.alert('Error in useeffect');
+        console.log('error');
+        setError(userData.error);
+      } else {
+        Alert.alert('api_token in useeffect');
+        // Alert.alert('api_token', userData.api_token);
+        navigation.push('Home');
+        AsyncStorage.setItem('api_token', userData.api_token);
+      }
+    }
     register(
       {name: 'password'},
       {
@@ -40,21 +62,11 @@ const LoginScreen = ({navigation}) => {
         },
       },
     );
-    if (userData) {
-      if (userData.error) {
-        setError(userData.error);
-      } else {
-        setValue('email', '');
-        setValue('password', '');
-        navigation.navigate('Home');
-        AsyncStorage.setItem('api_token', userData.api_token);
-      }
-    }
   }, [register, userData, error, navigation, setValue]);
 
   const handleEmailChange = email => {
     setError('');
-    setValue('email', email);
+    setValue('email', email.trim());
   };
 
   const handlePasswordChange = password => {
@@ -81,8 +93,21 @@ const LoginScreen = ({navigation}) => {
       />
       <Text style={styles.error}>{errors.password?.message}</Text>
       <Text style={styles.error}>{error}</Text>
-      <Button label="Login" onPress={handleSubmit(onSubmit)} />
-      <Button label="Sign Up" onPress={() => navigation.navigate('SignUp')} />
+      <Button label="SIGN IN" onPress={handleSubmit(onSubmit)} />
+      <Text
+        style={styles.centerText}
+        onPress={navigation.push('ResetPassword')}>
+        Forgot Password?
+      </Text>
+      <View style={styles.bottomTextView}>
+        <Text>Flowerful Driver Production 1.0.0 </Text>
+        <Text
+          style={styles.link}
+          onPress={() => Linking.openURL('http://google.com')}>
+          Privacy Policy
+        </Text>
+      </View>
+      {/* <Button label="Sign Up" onPress={() => navigation.navigate('SignUp')} /> */}
     </View>
   );
 };
@@ -90,24 +115,35 @@ const LoginScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    // justifyContent: 'space-between',
     backgroundColor: '#fff',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-    color: '#000',
+    paddingLeft: 10,
+    paddingRight: 10,
   },
   error: {
     color: 'red',
   },
   logo: {
-    flex: 1,
+    // flex: 1,
+    display: 'flex',
     width: '100%',
+    // justifyContent: 'center',
     resizeMode: 'contain',
-    alignSelf: 'center',
+    //   // alignSelf: 'center',
+  },
+  centerText: {
+    textAlign: 'center',
+  },
+  bottomTextView: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    marginBottom: 6,
+    textAlign: 'center',
+    justifyContent: 'center',
+  },
+  link: {
+    textDecorationLine: 'underline',
   },
   input: {
     display: 'flex',
