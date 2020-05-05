@@ -1,15 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import {
-  StyleSheet,
-  Image,
-  View,
-  StatusBar,
-  Text,
-  TextInput,
-} from 'react-native';
+import {StyleSheet, View, StatusBar, Text} from 'react-native';
 import Button from '../components/Button';
 import CustomInput from '../components/CustomInput';
-import imageLogo from '../assets/images/logo.png';
 import {useForm} from 'react-hook-form';
 import {signUpUser} from '../redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
@@ -85,53 +77,26 @@ const ResetPasswordScreen = ({navigation}) => {
     }
   }, [register, getValues, navigation, userData]);
 
-  const handleNameChange = name => {
-    setValue('name', name);
-  };
-
   const handleEmailChange = email => {
     setValue('email', email.trim());
-  };
-
-  const handlePasswordChange = password => {
-    setValue('password', password);
-  };
-
-  const handleConfirmPasswordChange = confirmPassword => {
-    setValue('confirmPassword', confirmPassword);
   };
 
   return (
     <View style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="#4F6D7A" />
-      <Image source={imageLogo} style={styles.logo} />
-      <CustomInput
-        name="name"
-        placeholder="Full Name"
-        onChangeText={handleNameChange}
-      />
-      <Text style={styles.error}>{errors.name?.message}</Text>
+
       <CustomInput
         name="email"
-        placeholder="Email"
+        placeholder="Email Address"
         onChangeText={handleEmailChange}
       />
+      <Text style={styles.infoText}>
+        You'll receive an email with a forgotten password link. Open the email
+        on your phone and click the link to reset your password.
+      </Text>
       <Text style={styles.error}>{errors.email?.message}</Text>
-      <CustomInput
-        placeholder="Password"
-        onChangeText={handlePasswordChange}
-        name="password"
-        secureTextEntry
-      />
-      <Text style={styles.error}>{errors.password?.message}</Text>
-      <CustomInput
-        placeholder="Confirm Password"
-        onChangeText={handleConfirmPasswordChange}
-        name="confirmPassword"
-        secureTextEntry
-      />
-      <Text style={styles.error}>{errors.confirmPassword?.message}</Text>
-      <Button label="Sign Up" onPress={handleSubmit(onSubmit)} />
+
+      <Button label="RESET PASSWORD" onPress={handleSubmit(onSubmit)} />
     </View>
   );
 };
@@ -139,29 +104,14 @@ const ResetPasswordScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
-    alignItems: 'center',
     backgroundColor: '#fff',
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
   },
-  welcome: {
-    fontSize: 20,
+  infoText: {
+    fontSize: 30,
     textAlign: 'center',
-    margin: 10,
-    color: '#000',
-  },
-  error: {
-    color: 'red',
-  },
-  logo: {
-    flex: 1,
-    width: '100%',
-    resizeMode: 'contain',
-    alignSelf: 'center',
-  },
-  input: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
   },
 });
 

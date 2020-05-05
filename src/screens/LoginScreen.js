@@ -96,7 +96,7 @@ const LoginScreen = ({navigation}) => {
       <Button label="SIGN IN" onPress={handleSubmit(onSubmit)} />
       <Text
         style={styles.centerText}
-        onPress={navigation.push('ResetPassword')}>
+        onPress={() => navigation.push('ResetPassword')}>
         Forgot Password?
       </Text>
       <View style={styles.bottomTextView}>
@@ -107,7 +107,6 @@ const LoginScreen = ({navigation}) => {
           Privacy Policy
         </Text>
       </View>
-      {/* <Button label="Sign Up" onPress={() => navigation.navigate('SignUp')} /> */}
     </View>
   );
 };

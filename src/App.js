@@ -7,18 +7,16 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
-import SignUpScreen from './screens/SignUpScreen';
+import ResetPasswordScreen from './screens/ResetPasswordScreen';
 import store from './redux/store';
 import AsyncStorage from '@react-native-community/async-storage';
 import SideBar from './components/SideBar';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import colors from './config/colors';
-import {color} from 'react-native-reanimated';
-import ResetPasswordScreen from './screens/SignUpScreen';
+import {customHeader} from './config/ui';
 
 const App = () => {
   const Stack = createStackNavigator();
-  const Drawer = createDrawerNavigator();
+  // const Drawer = createDrawerNavigator();
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -41,21 +39,13 @@ const App = () => {
               <Stack.Screen
                 name="Authentication"
                 component={LoginScreen}
-                options={{
-                  headerLeft: null,
-                  headerStyle: {
-                    backgroundColor: colors.PRIMARY,
-                  },
-                  headerTitleStyle: {
-                    color: colors.WHITE,
-                  },
-                }}
+                options={customHeader()}
               />
 
               <Stack.Screen
                 name="ResetPassword"
                 component={ResetPasswordScreen}
-                options={{headerLeft: null}}
+                options={customHeader()}
               />
             </>
           )}
