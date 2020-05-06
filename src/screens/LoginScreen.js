@@ -24,22 +24,20 @@ const LoginScreen = ({navigation}) => {
 
   const onSubmit = async formData => {
     setError('');
-    // Alert.alert('Form Data', formData);
-    console.log('formData', formData);
     dispatch(loginUser(formData));
   };
 
   useEffect(() => {
     if (userData) {
       if (userData.error) {
-        // Alert.alert('Error in useeffect');
         console.log('error');
         setError(userData.error);
       } else {
-        Alert.alert('api_token in useeffect');
-        // Alert.alert('api_token', userData.api_token);
-        navigation.push('Home');
+        // Alert.alert('api_token in useeffect');
+        navigation.push('HomeScreen');
         AsyncStorage.setItem('api_token', userData.api_token);
+        console.log('data', JSON.stringify(userData));
+        AsyncStorage.setItem('userData', JSON.stringify(userData));
       }
     }
     register(
@@ -93,10 +91,10 @@ const LoginScreen = ({navigation}) => {
       />
       <Text style={styles.error}>{errors.password?.message}</Text>
       <Text style={styles.error}>{error}</Text>
-      <Button label="SIGN IN" onPress={handleSubmit(onSubmit)} />
+      <Button onPress={handleSubmit(onSubmit)}>SIGN IN</Button>
       <Text
         style={styles.centerText}
-        onPress={() => navigation.push('ResetPassword')}>
+        onPress={() => navigation.push('ForgotPassword')}>
         Forgot Password?
       </Text>
       <View style={styles.bottomTextView}>

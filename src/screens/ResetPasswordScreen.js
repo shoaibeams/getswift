@@ -1,33 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, StatusBar, Text} from 'react-native';
+import {StyleSheet, View, StatusBar, Text, ToastAndroid} from 'react-native';
 import Button from '../components/Button';
 import CustomInput from '../components/CustomInput';
 import {useForm} from 'react-hook-form';
-import {signUpUser} from '../redux/user/user.actions';
+import {
+  sendResetLinkEmail,
+  clearState,
+  clearResetLinkEmail,
+} from '../redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 
 const ResetPasswordScreen = ({navigation}) => {
-  const {register, handleSubmit, setValue, errors, getValues} = useForm();
+  const {register, handleSubmit, setValue, errors} = useForm();
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const userData = useSelector(state => state.userReducer.user, shallowEqual);
+  const resetPassword = useSelector(
+    state => state.userReducer.resetPassword,
+    shallowEqual,
+  );
 
-  const onSubmit = async formData => {
+  const onSubmit = async email => {
     setError('');
-    dispatch(signUpUser(formData));
+    dispatch(sendResetLinkEmail(email));
   };
 
   useEffect(() => {
-    register(
-      {name: 'name'},
-      {
-        required: 'Full Name is required',
-        minLength: {
-          value: 6,
-          message: 'Name must be 6 characters long',
-        },
-      },
-    );
     register(
       {name: 'email'},
       {
@@ -38,44 +35,27 @@ const ResetPasswordScreen = ({navigation}) => {
         },
       },
     );
-    register(
-      {name: 'password'},
-      {
-        required: 'Password is required',
-        minLength: {
-          value: 6,
-          message: 'Password must be 6 characters long',
-        },
-      },
-    );
-    register(
-      {name: 'confirmPassword'},
-      {
-        required: 'Confirm Password is required',
-        minLength: {
-          value: 6,
-          message: 'Password must be 6 characters long',
-        },
-        validate: value => {
-          if (value === getValues().password) {
-            return true;
-          } else {
-            return 'The passwords do not match';
-          }
-        },
-      },
-    );
-    console.log('state', userData);
-    if (userData) {
-      console.log('object 1');
-      if (userData.error) {
-        setError(userData.error);
+
+    console.log('state', resetPassword);
+    if (resetPassword) {
+      if (resetPassword.data.error) {
+        ToastAndroid.showWithGravity(
+          resetPassword.message,
+          3000,
+          ToastAndroid.CENTER,
+        );
+        setError(resetPassword.message);
       } else {
-        console.log('object 2');
-        navigation.navigate('Login');
+        ToastAndroid.showWithGravity(
+          resetPassword.message,
+          3000,
+          ToastAndroid.CENTER,
+        );
+        dispatch(clearResetLinkEmail());
+        navigation.pop();
       }
     }
-  }, [register, getValues, navigation, userData]);
+  }, [register, navigation, resetPassword, dispatch]);
 
   const handleEmailChange = email => {
     setValue('email', email.trim());
@@ -90,13 +70,13 @@ const ResetPasswordScreen = ({navigation}) => {
         placeholder="Email Address"
         onChangeText={handleEmailChange}
       />
+      <Text style={styles.error}>{errors.email?.message}</Text>
       <Text style={styles.infoText}>
         You'll receive an email with a forgotten password link. Open the email
         on your phone and click the link to reset your password.
       </Text>
-      <Text style={styles.error}>{errors.email?.message}</Text>
 
-      <Button label="RESET PASSWORD" onPress={handleSubmit(onSubmit)} />
+      <Button onPress={handleSubmit(onSubmit)}>RESET PASSWORD</Button>
     </View>
   );
 };
@@ -112,6 +92,9 @@ const styles = StyleSheet.create({
   infoText: {
     fontSize: 30,
     textAlign: 'center',
+  },
+  error: {
+    color: 'red',
   },
 });
 
