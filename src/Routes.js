@@ -10,10 +10,10 @@ import HomeScreen from './screens/HomeScreen';
 import {getApiToken} from './redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 
-const App = () => {
+const Routes = () => {
   const Stack = createStackNavigator();
-  const token = useSelector(state => state.userReducer.token, shallowEqual);
   const dispatch = useDispatch();
+  const token = useSelector(state => state.userReducer.token, shallowEqual);
 
   useEffect(() => {
     // AsyncStorage.clear();
@@ -31,30 +31,29 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <>
-          {!token && (
-            <>
-              <Stack.Screen
-                name="Authentication"
-                component={LoginScreen}
-                options={customHeader()}
-              />
-              <Stack.Screen
-                name="ForgotPassword"
-                component={ResetPasswordScreen}
-                options={customHeader()}
-              />
-            </>
-          )}
+        {!token ? (
+          <>
+            <Stack.Screen
+              name="Authentication"
+              component={LoginScreen}
+              options={customHeader()}
+            />
+            <Stack.Screen
+              name="ForgotPassword"
+              component={ResetPasswordScreen}
+              options={customHeader()}
+            />
+          </>
+        ) : (
           <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
             options={{headerShown: false}}
           />
-        </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
-export default App;
+export default Routes;

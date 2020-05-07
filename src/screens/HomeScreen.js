@@ -19,7 +19,6 @@ const HomeScreen = () => {
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}
-        // options={customHeader()}
         options={{
           tabBarIcon: () => <Icon name="user-circle" type={'FontAwesome5'} />,
         }}

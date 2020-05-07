@@ -12,12 +12,12 @@ import Button from '../components/Button';
 import CustomInput from '../components/CustomInput';
 import imageLogo from '../assets/images/logo.png';
 import {useForm} from 'react-hook-form';
-import {loginUser} from '../redux/user/user.actions';
+import {loginUser, setApiToken} from '../redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
 const LoginScreen = ({navigation}) => {
-  const {register, handleSubmit, setValue, errors} = useForm();
+  const {register, handleSubmit, setValue, errors, reset} = useForm();
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const userData = useSelector(state => state.userReducer.user, shallowEqual);
@@ -29,15 +29,9 @@ const LoginScreen = ({navigation}) => {
 
   useEffect(() => {
     if (userData) {
+      dispatch(setApiToken(userData.api_token));
       if (userData.error) {
         console.log('error');
-        setError(userData.error);
-      } else {
-        // Alert.alert('api_token in useeffect');
-        navigation.push('HomeScreen');
-        AsyncStorage.setItem('api_token', userData.api_token);
-        console.log('data', JSON.stringify(userData));
-        AsyncStorage.setItem('userData', JSON.stringify(userData));
       }
     }
     register(
@@ -60,7 +54,13 @@ const LoginScreen = ({navigation}) => {
         },
       },
     );
-  }, [register, userData, error, navigation, setValue]);
+
+    return () => {
+      if (userData) {
+        dispatch(setApiToken(userData.api_token));
+      }
+    };
+  }, [register, userData, error, navigation, dispatch, setValue, reset]);
 
   const handleEmailChange = email => {
     setError('');
