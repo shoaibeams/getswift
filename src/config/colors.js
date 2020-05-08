@@ -1,10 +1,10 @@
 const colors = {
-  BLACK: '#000',
-  WHITE: '#FFF',
   PRIMARY: '#71921d',
-  SILVER: '#BEBEBE',
-  TORCH_RED: '#F8262F',
-  MISCHKA: '#E5E4E6',
+  WHITE_SMOKE: '#f5f5f5',
+  GREY: '#6e6e6e',
+  WHITE: '#FFF',
+  BLACK: '#000',
+  GREEN: 'green',
 };
 
 export default colors;

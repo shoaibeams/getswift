@@ -1,0 +1,1913 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Flowerful",
+		"_postman_id": "65655c32-a1e5-5795-3dd2-3173ac98177e",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Manager",
+			"description": "",
+			"item": [
+				{
+					"name": "Drivers",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Drivers",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/drivers?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"drivers"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Driver By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/drivers/1?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"drivers",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Earnings",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Earnings",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/earnings?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"earnings"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Earning By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/earnings/1?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"earnings",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Drivers Payouts",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Drivers Payouts",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/driversPayouts?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"driversPayouts"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Driver Payouts By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/driversPayouts/1?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"driversPayouts",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Restaurants Payouts",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Restaurants Payouts copy",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/restaurantsPayouts?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"restaurantsPayouts"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Restaurant Payouts By Id copy",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/manager/restaurantsPayouts/1?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"manager",
+										"restaurantsPayouts",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Driver",
+			"description": "",
+			"item": [
+				{
+					"name": "Auth",
+					"description": "",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"url": "http://157.230.54.90/flowerful/api/driver/login",
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "driver@flowerful.com",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "123123123",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Send Reset Link Email",
+							"request": {
+								"url": "http://157.230.54.90/flowerful/api/driver/send_reset_link_email",
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "driver@flowerful.com",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Register",
+							"request": {
+								"url": "http://157.230.54.90/flowerful/api/driver/register",
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"description": ""
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Fussy Driver",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "fussy@gmail.com",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Logouts",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/driver/logout?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"driver",
+										"logout"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Orders",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Orders",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/driver/orders?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"driver",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/driver/orders/1?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"driver",
+										"orders",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Notifications",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Notifications",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/driver/notifications?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"driver",
+										"notifications"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Notification By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/driver/notifications/41040b84-a66d-41b8-8a49-b98df15a7cd7?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"driver",
+										"notifications",
+										"41040b84-a66d-41b8-8a49-b98df15a7cd7"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Notification By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/driver/notifications/41040b84-a66d-41b8-8a49-b98df15a7cd7?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"driver",
+										"notifications",
+										"41040b84-a66d-41b8-8a49-b98df15a7cd7"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get Settings",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/driver/settings",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get User",
+					"request": {
+						"url": {
+							"raw": "http://157.230.54.90/flowerful/api/driver/user?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+							"protocol": "http",
+							"host": [
+								"157",
+								"230",
+								"54",
+								"90"
+							],
+							"path": [
+								"flowerful",
+								"api",
+								"driver",
+								"user"
+							],
+							"query": [
+								{
+									"key": "api_token",
+									"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users/Clients",
+			"description": "",
+			"item": [
+				{
+					"name": "Users",
+					"description": "",
+					"item": [
+						{
+							"name": "Get User",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/user?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"user"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Update User By Id",
+							"request": {
+								"url": "http://157.230.54.90/flowerful/api/users/22",
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"description": ""
+										},
+										{
+											"key": "name",
+											"value": "Sanchez Roberto",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "is_on_road_with_other_companies",
+											"value": "1",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "transport_mode_id",
+											"value": "6",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "driver@flowerful.com",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "+12344344355",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "bio",
+											"value": "basic bio",
+											"description": "",
+											"type": "text"
+										},
+										{
+											"key": "address",
+											"value": "basic address",
+											"description": "",
+											"type": "text"
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Orders",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Orders",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/orders?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"orders"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/orders/1?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"orders",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Food Orders",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Food Orders",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/food_orders?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"food_orders"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get All Food Orders copy",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/food_orders?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"food_orders"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Food Order By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/food_orders/1?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"food_orders",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Order Statuses",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Order Statuses",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/order_statuses?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"order_statuses"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Order Statuses Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/order_statuses/1?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"order_statuses",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Payments",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Payments",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/payments?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"payments"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/payments/3?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"payments",
+										"3"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Payment By Month",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/payments/byMonth?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"payments",
+										"byMonth"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Favorites",
+					"description": "",
+					"item": [
+						{
+							"name": "Get All Favorites",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/favorites?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"favorites"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Exist",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/favorites/exist?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"favorites",
+										"exist"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Favorites By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/favorites/3?api_token=tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"favorites",
+										"3"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "tVSfIKRSX2Yn8iAMoUS3HPls84ycS8NAxO2dj2HvePbbr4WHorp4gIFRmFwB",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Favorites By Id copy",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/favorites/1?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"favorites",
+										"1"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Notifications",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Notifications",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/notifications?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"notifications"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Get Notification By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/notifications/41040b84-a66d-41b8-8a49-b98df15a7cd7?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"notifications",
+										"41040b84-a66d-41b8-8a49-b98df15a7cd7"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Notification By Id",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/notifications/41040b84-a66d-41b8-8a49-b98df15a7cd7?api_token=OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"notifications",
+										"41040b84-a66d-41b8-8a49-b98df15a7cd7"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Carts",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Cart",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/carts?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"carts"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Cart Count",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/carts/count?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"carts",
+										"count"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delivery Addresses",
+					"description": "",
+					"item": [
+						{
+							"name": "Get Delivery Addresses",
+							"request": {
+								"url": {
+									"raw": "http://157.230.54.90/flowerful/api/delivery_addresses?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"protocol": "http",
+									"host": [
+										"157",
+										"230",
+										"54",
+										"90"
+									],
+									"path": [
+										"flowerful",
+										"api",
+										"delivery_addresses"
+									],
+									"query": [
+										{
+											"key": "api_token",
+											"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+											"equals": true,
+											"description": ""
+										}
+									],
+									"variable": []
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "",
+											"value": "",
+											"description": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"description": ""
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/login",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "client@flowerful.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123123123",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Fussy",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "fussy@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"url": {
+							"raw": "http://157.230.54.90/flowerful/api/logout?api_token=fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+							"protocol": "http",
+							"host": [
+								"157",
+								"230",
+								"54",
+								"90"
+							],
+							"path": [
+								"flowerful",
+								"api",
+								"logout"
+							],
+							"query": [
+								{
+									"key": "api_token",
+									"value": "fXLu7VeYgXDu82SkMxlLPG1mCAXc4EBIx6O5isgYVIKFQiHah0xiOHmzNsBv",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Send Reset Link Email",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/send_reset_link_email",
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "driver@flowerful.com",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Restaurants",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Restaurants",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/restaurants",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Restaurant Reviews",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/restaurant_reviews",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Foods",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Foods",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/foods",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Food Reviews",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/food_reviews",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Categories",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/categories",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Faq",
+			"description": "",
+			"item": [
+				{
+					"name": "Get Faqs",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/faqs",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Faq Categories",
+					"request": {
+						"url": "http://157.230.54.90/flowerful/api/faq_categories",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Settings",
+			"request": {
+				"url": "http://157.230.54.90/flowerful/api/settings",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Galleries",
+			"request": {
+				"url": "http://157.230.54.90/flowerful/api/galleries",
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_token",
+						"value": "OuMsmU903WMcMhzAbuSFtxBekZVdXz66afifRo3YRCINi38jkXJ8rpN0FcfS",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Nutrition",
+			"request": {
+				"url": "http://157.230.54.90/flowerful/api/nutrition",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Extras",
+			"request": {
+				"url": "http://157.230.54.90/flowerful/api/extras",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Get Currencies",
+			"request": {
+				"url": "http://157.230.54.90/flowerful/api/currencies",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,85 @@
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
+import {Container, StyleProvider, Text, Icon} from 'native-base';
+import getTheme from '../native-base-theme/components';
+import CustomHeader from '../components/CustomHeader';
+import Button from '../components/Button';
+import commonColor from '../native-base-theme/variables/commonColor';
+import colors from '../config/colors';
+import GlobalStyles from '../config/styles';
+import Item from '../components/Item';
+
+const JobScreen = ({route}) => {
+  const {
+    id,
+    company_name,
+    contact_name,
+    drop_off_addr,
+    pick_up_addr,
+    contact_phone,
+    created_at,
+  } = route.params;
+
+  return (
+    <StyleProvider style={getTheme(commonColor)}>
+      <Container style={styles.container}>
+        <CustomHeader>Job #{id}</CustomHeader>
+        <Text style={styles.rightAlignedText}>{created_at}</Text>
+        <View style={styles.jobsContainer}>
+          <Item>
+            <Text>
+              <Text style={GlobalStyles.txtGrey}>FROM:</Text> {pick_up_addr}
+            </Text>
+            <View>
+              <Text style={GlobalStyles.txtGrey}>{company_name}</Text>
+            </View>
+            <Text>
+              <Icon name="phone" type="Entypo" style={{fontSize: 17}} />
+              {contact_phone}
+            </Text>
+            <Text>? kms away from you </Text>
+          </Item>
+          <Item>
+            <Text>
+              <Text style={GlobalStyles.txtGrey}>TO:</Text> Contact Name
+            </Text>
+            <Text>{contact_name}</Text>
+            <Text>Regular Customer</Text>
+            <Text>{drop_off_addr}</Text>
+          </Item>
+          <Item>
+            <Text style={GlobalStyles.txtGrey}>Instructions</Text>
+            <Text>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Voluptatum eveniet ducimus doloribus sunt quasi quaerat id, eius
+              cupiditate eligendi facere exercitationem maiores quae hic
+              assumenda repudiandae aperiam beatae ut vel.
+            </Text>
+          </Item>
+          <View style={{padding: 10}}>
+            <Button>ACCEPT JOB</Button>
+          </View>
+        </View>
+      </Container>
+    </StyleProvider>
+  );
+};
+
+const styles = StyleSheet.create({
+  jobsContainer: {
+    flex: 1,
+    // padding: 10,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: colors.WHITE_SMOKE,
+  },
+  rightAlignedText: {
+    textAlign: 'right',
+    paddingRight: 15,
+    paddingTop: 5,
+    color: colors.GREEN,
+  },
+});
+
+export default JobScreen;

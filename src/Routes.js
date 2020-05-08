@@ -9,6 +9,7 @@ import {customHeader} from './config/ui';
 import HomeScreen from './screens/HomeScreen';
 import {getApiToken} from './redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
+import JobScreen from './screens/JobScreen';
 
 const Routes = () => {
   const Stack = createStackNavigator();
@@ -16,8 +17,7 @@ const Routes = () => {
   const token = useSelector(state => state.userReducer.token, shallowEqual);
 
   useEffect(() => {
-    // AsyncStorage.clear();
-    console.log('token', token);
+    // console.log('token', token);
     dispatch(getApiToken());
     SplashScreen.hide();
     if (token === undefined) {
@@ -45,11 +45,13 @@ const Routes = () => {
             />
           </>
         ) : (
-          <Stack.Screen
-            name="HomeScreen"
-            component={HomeScreen}
-            options={{headerShown: false}}
-          />
+          <>
+            <Stack.Screen
+              name="HomeScreen"
+              component={HomeScreen}
+              options={{headerShown: false}}
+            />
+          </>
         )}
       </Stack.Navigator>
     </NavigationContainer>

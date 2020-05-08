@@ -3,41 +3,35 @@ import {View, Text, BackHandler, Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 import Button from '../components/Button';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
-import {Container, StyleProvider} from 'native-base';
+import {Container, StyleProvider, Icon} from 'native-base';
 import getTheme from '../native-base-theme/components';
 import commonColor from '../native-base-theme/variables/commonColor';
-import {
-  getUserData,
-  signOutUser,
-  setApiToken,
-  clearToken,
-} from '../redux/user/user.actions';
-import AsyncStorage from '@react-native-community/async-storage';
-
+import {getUserData, clearToken} from '../redux/user/user.actions';
 import CustomHeader from '../components/CustomHeader';
+import colors from '../config/colors';
+import GlobalStyles from '../config/styles';
 
-const ProfileScreen = ({navigation}) => {
+const ProfileScreen = () => {
+  const dispatch = useDispatch();
   const userData = useSelector(
     state => state.userReducer.userData,
     shallowEqual,
   );
-  const signOutResponse = useSelector(
-    state => state.userReducer.signOutResponse,
-    shallowEqual,
-  );
-  const dispatch = useDispatch();
 
   useEffect(() => {
-    BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
-    dispatch(getUserData());
+    if (!userData) {
+      dispatch(getUserData());
+    }
+    console.log('userData', userData);
 
+    BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
     return () => {
       BackHandler.removeEventListener(
         'hardwareBackPress',
         handleBackButtonClick,
       );
     };
-  }, [userData, dispatch, signOutResponse]);
+  }, [userData, dispatch]);
 
   const handleBackButtonClick = () => {
     BackHandler.exitApp();
@@ -48,26 +42,51 @@ const ProfileScreen = ({navigation}) => {
     dispatch(clearToken());
   };
 
+  let name, id, thumb;
+  if (userData) {
+    name = userData.name;
+    id = userData.id;
+    const userMedia = userData.media.slice(-1);
+    thumb = userMedia[0].thumb;
+  }
+
   return (
     <StyleProvider style={getTheme(commonColor)}>
       <Container>
         <CustomHeader>Profile</CustomHeader>
-        <View style={styles.profileContainer}>
-          <View style={styles.profileAvatarContainer}>
-            <Image
-              style={styles.tinyLogo}
-              source={{
-                uri: 'https://reactnative.dev/img/tiny_logo.png',
-              }}
-            />
+        <View style={styles.container}>
+          <View style={styles.profileContainer}>
+            <View style={styles.profileAvatar}>
+              <Image
+                style={styles.avatar}
+                source={{
+                  uri: thumb,
+                }}
+              />
+              <Text style={styles.statusText}>Status: Online</Text>
+            </View>
+            <View style={styles.profileDetails}>
+              <Text style={GlobalStyles.txtBg}>{name}</Text>
+              <Text style={GlobalStyles.txtMd}>
+                id: {id}{' '}
+                <Icon
+                  name="car-alt"
+                  type={'FontAwesome5'}
+                  style={GlobalStyles.txtMd}
+                />
+              </Text>
+              <Text style={GlobalStyles.txtMd}>Rating</Text>
+              <Text style={GlobalStyles.linkText}>Change Password</Text>
+              <Text style={GlobalStyles.linkText}>Account Setting</Text>
+              <Text style={GlobalStyles.linkText}>Notification Setting</Text>
+              <Text style={GlobalStyles.linkText}>Location Setting</Text>
+            </View>
           </View>
-          <View style={styles.profileDetailsContainer}>
-            <Text>Name</Text>
-            <Text>Id</Text>
-            <Text>Rating</Text>
-          </View>
+          <Button onPress={handleSignOut}>SIGN OUT</Button>
+          <Text style={styles.btnBelowText}>
+            officia aperiam Mollitia, optio{' '}
+          </Text>
         </View>
-        <Button onPress={handleSignOut}>SIGN OUT</Button>
       </Container>
     </StyleProvider>
   );
@@ -77,8 +96,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#fff',
+    padding: 10,
+  },
+  profileAvatar: {
+    alignItems: 'center',
+  },
+  statusText: {
+    paddingTop: 10,
   },
   profileContainer: {
     flex: 1,
@@ -86,10 +111,21 @@ const styles = StyleSheet.create({
     padding: 10,
     justifyContent: 'space-between',
   },
-  tinyLogo: {
+  profileDetails: {
+    flex: 1,
+    paddingTop: 20,
+    paddingLeft: 30,
+  },
+  avatar: {
     width: 150,
     height: 150,
     borderRadius: 150,
+    margin: 10,
+    borderWidth: 5,
+    borderColor: colors.PRIMARY,
+  },
+  btnBelowText: {
+    textAlign: 'right',
   },
 });
 

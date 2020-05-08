@@ -12,18 +12,14 @@ export const loginUser = formData => {
     console.log('data', data);
     await AsyncStorage.setItem('userData', JSON.stringify(data));
     await AsyncStorage.setItem('api_token', data.api_token);
-
+    dispatch({
+      type: UserActionTypes.GET_USER_DATA,
+      payload: data,
+    });
     dispatch({
       type: UserActionTypes.GET_API_TOKEN,
       payload: data.api_token,
     });
-
-    if (data.success) {
-      dispatch({
-        type: UserActionTypes.LOG_IN_USER,
-        payload: data,
-      });
-    }
   };
 };
 
@@ -89,6 +85,7 @@ export const clearToken = () => {
 
   return async dispatch => {
     await AsyncStorage.setItem('token', '');
+    await AsyncStorage.setItem('userData', '');
     dispatch({
       type: UserActionTypes.GET_API_TOKEN,
       payload: null,
