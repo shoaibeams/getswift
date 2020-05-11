@@ -19,7 +19,7 @@ const NewScreen = ({navigation}) => {
     if (!jobs) {
       dispatch(getAllJobs(token));
     }
-    // console.log('jobs :>> ', jobs);
+    console.log('jobs :>> ', jobs);
   }, [dispatch, token, jobs]);
 
   return (
@@ -32,7 +32,14 @@ const NewScreen = ({navigation}) => {
             keyExtractor={item => item.id}
             renderItem={({
               item,
-              item: {id, pick_up_addr, drop_off_addr, price, created_at},
+              item: {
+                id,
+                pick_up_addr,
+                drop_off_addr,
+                price,
+                created_at,
+                distance_in_kms,
+              },
             }) => (
               <TouchableOpacity onPress={() => navigation.push('Job', item)}>
                 <Item>
@@ -49,7 +56,7 @@ const NewScreen = ({navigation}) => {
                     <Text style={GlobalStyles.txtGrey}>TO:</Text>{' '}
                     {drop_off_addr}
                   </Text>
-                  <Text>? kms </Text>
+                  <Text>{distance_in_kms} </Text>
                   <Text style={GlobalStyles.txtGrey}>${price}</Text>
                 </Item>
               </TouchableOpacity>

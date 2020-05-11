@@ -8,6 +8,10 @@ export const getAllJobs = token => {
       `${config.API_URL}/orders?api_token=${token}`,
     );
 
+    console.log('object', `${config.API_URL}/orders?api_token=${token}`);
+
+    console.log('response', response);
+
     const {
       data: {data},
     } = response;

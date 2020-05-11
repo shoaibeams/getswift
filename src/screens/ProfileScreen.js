@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
-import {View, Text, BackHandler, Image} from 'react-native';
+import {View, Text, BackHandler, Image, AsyncStorage} from 'react-native';
 import {StyleSheet} from 'react-native';
 import Button from '../components/Button';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 import {Container, StyleProvider, Icon} from 'native-base';
 import getTheme from '../native-base-theme/components';
 import commonColor from '../native-base-theme/variables/commonColor';
-import {getUserData, clearToken} from '../redux/user/user.actions';
+import {getUserData, clearToken, signOutUser} from '../redux/user/user.actions';
 import CustomHeader from '../components/CustomHeader';
 import colors from '../config/colors';
 import GlobalStyles from '../config/styles';
@@ -22,7 +22,7 @@ const ProfileScreen = () => {
     if (!userData) {
       dispatch(getUserData());
     }
-    console.log('userData', userData);
+    // console.log('userData', userData);
 
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
     return () => {
@@ -39,7 +39,7 @@ const ProfileScreen = () => {
   };
 
   const handleSignOut = async () => {
-    dispatch(clearToken());
+    dispatch(signOutUser(userData.api_token));
   };
 
   let name, id, thumb;

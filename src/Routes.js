@@ -14,12 +14,18 @@ import JobScreen from './screens/JobScreen';
 const Routes = () => {
   const Stack = createStackNavigator();
   const dispatch = useDispatch();
-  const token = useSelector(state => state.userReducer.token, shallowEqual);
+  const token = useSelector(state => state.userReducer.token);
 
   useEffect(() => {
-    // console.log('token', token);
-    dispatch(getApiToken());
+    console.log('token :>> ', token);
+    // AsyncStorage.clear();
+
+    if (!token) {
+      console.log('object');
+      dispatch(getApiToken());
+    }
     SplashScreen.hide();
+
     if (token === undefined) {
       SplashScreen.show();
     }

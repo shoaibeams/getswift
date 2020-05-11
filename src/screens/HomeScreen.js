@@ -8,7 +8,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import colors from '../config/colors';
 import JobsScreen from './JobsScreen';
 
-const HomeScreen = ({route}) => {
+const HomeScreen = () => {
   const Tab = createBottomTabNavigator();
 
   return (

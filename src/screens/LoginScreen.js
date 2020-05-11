@@ -20,7 +20,7 @@ const LoginScreen = ({navigation}) => {
   const {register, handleSubmit, setValue, errors, reset} = useForm();
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const userData = useSelector(state => state.userReducer.user, shallowEqual);
+  const userData = useSelector(state => state.userReducer.user);
 
   const onSubmit = async formData => {
     setError('');
@@ -28,12 +28,20 @@ const LoginScreen = ({navigation}) => {
   };
 
   useEffect(() => {
+    setError('');
+    // console.log('object');
+    // console.log('userData', userData);
     if (userData) {
-      dispatch(setApiToken(userData.api_token));
+      if (userData.api_token) {
+        // console.log('Setting token');
+        dispatch(setApiToken(userData.api_token));
+      }
       if (userData.error) {
-        console.log('error');
+        setError(userData.error);
+        // console.log('error');
       }
     }
+
     register(
       {name: 'password'},
       {
@@ -54,12 +62,6 @@ const LoginScreen = ({navigation}) => {
         },
       },
     );
-
-    return () => {
-      if (userData) {
-        dispatch(setApiToken(userData.api_token));
-      }
-    };
   }, [register, userData, error, navigation, dispatch, setValue, reset]);
 
   const handleEmailChange = email => {

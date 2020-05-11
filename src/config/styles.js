@@ -18,7 +18,11 @@ export default StyleSheet.create({
     lineHeight: 50,
     color: colors.PRIMARY,
   },
-
+  rightAlignedText: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   txtGrey: {
     color: colors.GREY,
   },

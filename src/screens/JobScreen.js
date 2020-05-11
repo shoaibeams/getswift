@@ -9,7 +9,7 @@ import colors from '../config/colors';
 import GlobalStyles from '../config/styles';
 import Item from '../components/Item';
 
-const JobScreen = ({route}) => {
+const JobScreen = ({navigation, route}) => {
   const {
     id,
     company_name,
@@ -18,7 +18,10 @@ const JobScreen = ({route}) => {
     pick_up_addr,
     contact_phone,
     created_at,
+    distance_in_kms,
   } = route.params;
+
+  console.log('job', route.params);
 
   return (
     <StyleProvider style={getTheme(commonColor)}>
@@ -37,7 +40,7 @@ const JobScreen = ({route}) => {
               <Icon name="phone" type="Entypo" style={{fontSize: 17}} />
               {contact_phone}
             </Text>
-            <Text>? kms away from you </Text>
+            <Text>{distance_in_kms} away from you </Text>
           </Item>
           <Item>
             <Text>
@@ -57,7 +60,10 @@ const JobScreen = ({route}) => {
             </Text>
           </Item>
           <View style={{padding: 10}}>
-            <Button>ACCEPT JOB</Button>
+            <Button
+              onPress={() => navigation.navigate('CheckList', route.params)}>
+              ACCEPT JOB
+            </Button>
           </View>
         </View>
       </Container>

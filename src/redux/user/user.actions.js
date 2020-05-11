@@ -9,9 +9,16 @@ export const loginUser = formData => {
     const {
       data: {data},
     } = response;
-    console.log('data', data);
-    await AsyncStorage.setItem('userData', JSON.stringify(data));
-    await AsyncStorage.setItem('api_token', data.api_token);
+    // console.log('data', data);
+
+    if (data.api_token) {
+      await AsyncStorage.setItem('userData', JSON.stringify(data));
+      await AsyncStorage.setItem('api_token', data.api_token);
+    }
+    dispatch({
+      type: UserActionTypes.LOG_IN_USER,
+      payload: data,
+    });
     dispatch({
       type: UserActionTypes.GET_USER_DATA,
       payload: data,
@@ -49,7 +56,7 @@ export const signUpUser = formData => {
   return async dispatch => {
     const response = await axios.post(`${config.API_URL}/register`, formData);
     const {data} = response;
-    console.log('data :>> ', data);
+    // console.log('data :>> ', data);
     if (data.success) {
       dispatch({
         type: UserActionTypes.LOG_IN_USER,
@@ -73,6 +80,8 @@ export const getApiToken = () => {
   return async dispatch => {
     const token = await AsyncStorage.getItem('api_token');
 
+    console.log('token action', token);
+
     dispatch({
       type: UserActionTypes.GET_API_TOKEN,
       payload: token || null,
@@ -84,8 +93,8 @@ export const clearToken = () => {
   AsyncStorage.clear();
 
   return async dispatch => {
-    await AsyncStorage.setItem('token', '');
-    await AsyncStorage.setItem('userData', '');
+    // await AsyncStorage.setItem('token', '');
+    // await AsyncStorage.setItem('userData', '');
     dispatch({
       type: UserActionTypes.GET_API_TOKEN,
       payload: null,
@@ -118,8 +127,12 @@ export const signOutUser = api_token => {
         payload: null,
       });
       dispatch({
+        type: UserActionTypes.LOG_IN_USER,
+        payload: null,
+      });
+      dispatch({
         type: UserActionTypes.GET_API_TOKEN,
-        payload: '',
+        payload: null,
       });
       dispatch({
         type: UserActionTypes.SIGN_OUT_USER,
