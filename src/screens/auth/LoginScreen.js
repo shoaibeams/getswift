@@ -5,40 +5,46 @@ import {
   View,
   StatusBar,
   Text,
-  Alert,
   Linking,
+  ToastAndroid,
 } from 'react-native';
-import Button from '../components/Button';
-import CustomInput from '../components/CustomInput';
-import imageLogo from '../assets/images/logo.png';
+import Button from '../../components/Button';
+import CustomInput from '../../components/CustomInput';
+import imageLogo from '../../assets/images/logo.png';
 import {useForm} from 'react-hook-form';
-import {loginUser, setApiToken} from '../redux/user/user.actions';
-import {useDispatch, useSelector, shallowEqual} from 'react-redux';
-import AsyncStorage from '@react-native-community/async-storage';
+import {loginUser, setApiToken} from '../../redux/user/user.actions';
+import {useDispatch, useSelector} from 'react-redux';
 
 const LoginScreen = ({navigation}) => {
-  const {register, handleSubmit, setValue, errors, reset} = useForm();
-  const [error, setError] = useState('');
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    errors,
+    reset,
+    getValues,
+  } = useForm();
+
   const dispatch = useDispatch();
   const userData = useSelector(state => state.userReducer.user);
 
   const onSubmit = async formData => {
-    setError('');
+    // console.log('formData :>> ', formData);
     dispatch(loginUser(formData));
+    reset(formData);
   };
 
   useEffect(() => {
-    setError('');
-    // console.log('object');
     // console.log('userData', userData);
     if (userData) {
       if (userData.api_token) {
         // console.log('Setting token');
+        // console.log('userData', userData);
         dispatch(setApiToken(userData.api_token));
-      }
-      if (userData.error) {
-        setError(userData.error);
-        // console.log('error');
+        // console.log('userData :>> ', userData);
+      } else if (!userData.api_token && userData.error) {
+        // console.log('error', userData);
+        ToastAndroid.showWithGravity(userData.error, 3000, ToastAndroid.CENTER);
       }
     }
 
@@ -62,15 +68,13 @@ const LoginScreen = ({navigation}) => {
         },
       },
     );
-  }, [register, userData, error, navigation, dispatch, setValue, reset]);
+  }, [register, userData, navigation, dispatch, setValue, reset, getValues]);
 
   const handleEmailChange = email => {
-    setError('');
     setValue('email', email.trim());
   };
 
   const handlePasswordChange = password => {
-    setError('');
     setValue('password', password);
   };
 
@@ -92,7 +96,6 @@ const LoginScreen = ({navigation}) => {
         secureTextEntry
       />
       <Text style={styles.error}>{errors.password?.message}</Text>
-      <Text style={styles.error}>{error}</Text>
       <Button onPress={handleSubmit(onSubmit)}>SIGN IN</Button>
       <Text
         style={styles.centerText}

@@ -1,24 +1,15 @@
 import React, {useEffect} from 'react';
 import {BackHandler} from 'react-native';
 import {StyleSheet} from 'react-native';
-import {
-  Container,
-  Header,
-  Title,
-  Right,
-  Button,
-  Body,
-  Content,
-  Text,
-  Card,
-  CardItem,
-  StyleProvider,
-} from 'native-base';
-import getTheme from '../native-base-theme/components';
-import commonColor from '../native-base-theme/variables/commonColor';
-import CustomHeader from '../components/CustomHeader';
+import {Container, StyleProvider} from 'native-base';
+import CustomHeader from '../../components/CustomHeader';
+import Button from '../../components/Button';
+import CustomCard from '../../components/CustomCard';
 
-const AcceptedScreen = ({navigation}) => {
+import getTheme from '../../native-base-theme/components';
+import commonColor from '../../native-base-theme/variables/commonColor';
+
+const ArchivedScreen = ({navigation}) => {
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
     return () => {
@@ -37,7 +28,8 @@ const AcceptedScreen = ({navigation}) => {
   return (
     <StyleProvider style={getTheme(commonColor)}>
       <Container>
-        <CustomHeader>Accepted Jobs</CustomHeader>
+        <CustomHeader>Archived</CustomHeader>
+        <CustomCard>Find all the orders here.</CustomCard>
       </Container>
     </StyleProvider>
   );
@@ -52,4 +44,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AcceptedScreen;
+export default ArchivedScreen;

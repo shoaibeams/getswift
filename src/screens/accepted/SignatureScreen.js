@@ -2,12 +2,12 @@ import React, {useRef} from 'react';
 import {StyleSheet, Text, View, ToastAndroid} from 'react-native';
 import SignatureCapture from 'react-native-signature-capture';
 import {Container, StyleProvider} from 'native-base';
-import commonColor from '../native-base-theme/variables/commonColor';
-import getTheme from '../native-base-theme/components';
-import GlobalStyles from '../config/styles';
-import CustomHeader from '../components/CustomHeader';
-import colors from '../config/colors';
-import Button from '../components/Button';
+import commonColor from '../../native-base-theme/variables/commonColor';
+import getTheme from '../../native-base-theme/components';
+import GlobalStyles from '../../config/styles';
+import CustomHeader from '../../components/CustomHeader';
+import colors from '../../config/colors';
+import Button from '../../components/Button';
 
 const SignatureScreen = ({route}) => {
   const signRef = useRef(null);
@@ -23,6 +23,7 @@ const SignatureScreen = ({route}) => {
     );
     console.log(result);
   };
+  
   const _onDragEvent = () => {
     console.log('dragged');
   };

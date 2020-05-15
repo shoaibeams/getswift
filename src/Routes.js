@@ -2,26 +2,24 @@ import React, {useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import LoginScreen from './screens/LoginScreen';
-import ResetPasswordScreen from './screens/ResetPasswordScreen';
+import LoginScreen from './screens/auth/LoginScreen';
+import ResetPasswordScreen from './screens/auth/ResetPasswordScreen';
 import AsyncStorage from '@react-native-community/async-storage';
 import {customHeader} from './config/ui';
 import HomeScreen from './screens/HomeScreen';
 import {getApiToken} from './redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
-import JobScreen from './screens/JobScreen';
 
 const Routes = () => {
   const Stack = createStackNavigator();
   const dispatch = useDispatch();
-  const token = useSelector(state => state.userReducer.token);
+  const token = useSelector(state => state.userReducer.token, shallowEqual);
 
   useEffect(() => {
     console.log('token :>> ', token);
     // AsyncStorage.clear();
 
     if (!token) {
-      console.log('object');
       dispatch(getApiToken());
     }
     SplashScreen.hide();

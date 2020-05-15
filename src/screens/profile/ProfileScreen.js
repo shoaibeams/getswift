@@ -1,15 +1,15 @@
 import React, {useEffect} from 'react';
 import {View, Text, BackHandler, Image, AsyncStorage} from 'react-native';
 import {StyleSheet} from 'react-native';
-import Button from '../components/Button';
+import Button from '../../components/Button';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 import {Container, StyleProvider, Icon} from 'native-base';
-import getTheme from '../native-base-theme/components';
-import commonColor from '../native-base-theme/variables/commonColor';
-import {getUserData, clearToken, signOutUser} from '../redux/user/user.actions';
-import CustomHeader from '../components/CustomHeader';
-import colors from '../config/colors';
-import GlobalStyles from '../config/styles';
+import getTheme from '../../native-base-theme/components';
+import commonColor from '../../native-base-theme/variables/commonColor';
+import {getUserData, clearToken, signOutUser} from '../../redux/user/user.actions';
+import CustomHeader from '../../components/CustomHeader';
+import colors from '../../config/colors';
+import GlobalStyles from '../../config/styles';
 
 const ProfileScreen = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const ProfileScreen = () => {
     if (!userData) {
       dispatch(getUserData());
     }
-    // console.log('userData', userData);
+    console.log('userData', userData);
 
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
     return () => {
@@ -42,13 +42,15 @@ const ProfileScreen = () => {
     dispatch(signOutUser(userData.api_token));
   };
 
-  let name, id, thumb;
+  let name, id, thumb, avg_rating;
   if (userData) {
     name = userData.name;
     id = userData.id;
+    avg_rating = userData.avg_rating;
     const userMedia = userData.media.slice(-1);
     thumb = userMedia[0].thumb;
   }
+
 
   return (
     <StyleProvider style={getTheme(commonColor)}>
@@ -75,7 +77,9 @@ const ProfileScreen = () => {
                   style={GlobalStyles.txtMd}
                 />
               </Text>
-              <Text style={GlobalStyles.txtMd}>Rating</Text>
+              <Text style={GlobalStyles.txtMd}>
+                Rating: {avg_rating ? avg_rating.slice(0, 1) : ''}/5
+              </Text>
               <Text style={GlobalStyles.linkText}>Change Password</Text>
               <Text style={GlobalStyles.linkText}>Account Setting</Text>
               <Text style={GlobalStyles.linkText}>Notification Setting</Text>

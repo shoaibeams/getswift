@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, StatusBar, Text, ToastAndroid} from 'react-native';
-import Button from '../components/Button';
-import CustomInput from '../components/CustomInput';
+import Button from '../../components/Button';
+import CustomInput from '../../components/CustomInput';
 import {useForm} from 'react-hook-form';
 import {
   sendResetLinkEmail,
   clearState,
   clearResetLinkEmail,
-} from '../redux/user/user.actions';
+} from '../../redux/user/user.actions';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 
 const ResetPasswordScreen = ({navigation}) => {

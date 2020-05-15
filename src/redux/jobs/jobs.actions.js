@@ -8,13 +8,32 @@ export const getAllJobs = token => {
       `${config.API_URL}/orders?api_token=${token}`,
     );
 
-    console.log('object', `${config.API_URL}/orders?api_token=${token}`);
-
-    console.log('response', response);
-
     const {
       data: {data},
     } = response;
+
+    dispatch({
+      type: JobsActionTypes.GET_ALL_JOBS,
+      payload: data,
+    });
+  };
+};
+
+export const acceptJob = (token, jobId) => {
+  return async dispatch => {
+    const response = await axios.post(`${config.API_URL}/job-accept?page=1`, {
+      api_token: token,
+      order_id: jobId,
+    });
+    const {
+      data: {data},
+    } = response;
+
+    console.log('data :>> ', data);
+    dispatch({
+      type: JobsActionTypes.ACCEPT_JOB,
+      payload: data,
+    });
 
     dispatch({
       type: JobsActionTypes.GET_ALL_JOBS,

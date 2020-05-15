@@ -1,15 +1,19 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, View, ToastAndroid} from 'react-native';
 import {Container, StyleProvider, Text, Icon} from 'native-base';
-import getTheme from '../native-base-theme/components';
-import CustomHeader from '../components/CustomHeader';
-import Button from '../components/Button';
-import commonColor from '../native-base-theme/variables/commonColor';
-import colors from '../config/colors';
-import GlobalStyles from '../config/styles';
-import Item from '../components/Item';
+import getTheme from '../../native-base-theme/components';
+import CustomHeader from '../../components/CustomHeader';
+import Button from '../../components/Button';
+import commonColor from '../../native-base-theme/variables/commonColor';
+import colors from '../../config/colors';
+import GlobalStyles from '../../config/styles';
+import Item from '../../components/Item';
+import {useDispatch, useSelector} from 'react-redux';
+import {acceptJob} from '../../redux/jobs/jobs.actions';
 
 const JobScreen = ({navigation, route}) => {
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.userReducer.token);
   const {
     id,
     company_name,
@@ -21,7 +25,17 @@ const JobScreen = ({navigation, route}) => {
     distance_in_kms,
   } = route.params;
 
-  console.log('job', route.params);
+  // console.log('job', route.params);
+
+  const acceptJobHandler = () => {
+    dispatch(acceptJob(token, id));
+    navigation.goBack();
+    ToastAndroid.showWithGravity(
+      'Job has been accepted successfully',
+      3000,
+      ToastAndroid.CENTER,
+    );
+  };
 
   return (
     <StyleProvider style={getTheme(commonColor)}>
@@ -61,7 +75,9 @@ const JobScreen = ({navigation, route}) => {
           </Item>
           <View style={{padding: 10}}>
             <Button
-              onPress={() => navigation.navigate('CheckList', route.params)}>
+              onPress={acceptJobHandler}
+              // navigation.navigate('CheckList', route.params)}
+            >
               ACCEPT JOB
             </Button>
           </View>

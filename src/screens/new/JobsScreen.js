@@ -1,9 +1,9 @@
 import React from 'react';
 import NewScreen from './NewScreen';
-import SignatureScreen from './SignatureScreen';
+import SignatureScreen from '../accepted/SignatureScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import JobScreen from './JobScreen';
-import CheckListScreen from './CheckListScreen';
+import CheckListScreen from '../accepted/CheckListScreen';
 
 const JobsScreen = () => {
   const Stack = createStackNavigator();
@@ -20,7 +20,7 @@ const JobsScreen = () => {
         component={JobScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen
+      {/* <Stack.Screen
         name="CheckList"
         component={CheckListScreen}
         options={{headerShown: false}}
@@ -29,7 +29,7 @@ const JobsScreen = () => {
         name="Signature"
         component={SignatureScreen}
         options={{headerShown: false}}
-      />
+      /> */}
     </Stack.Navigator>
   );
 };

@@ -1,26 +1,31 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StyleSheet, View, FlatList, TouchableOpacity} from 'react-native';
 import {Container, StyleProvider, Text} from 'native-base';
-import getTheme from '../native-base-theme/components';
-import CustomHeader from '../components/CustomHeader';
-import Item from '../components/Item';
-import {getAllJobs} from '../redux/jobs/jobs.actions';
-import commonColor from '../native-base-theme/variables/commonColor';
+import getTheme from '../../native-base-theme/components';
+import CustomHeader from '../../components/CustomHeader';
+import Item from '../../components/Item';
+import {getAllJobs} from '../../redux/jobs/jobs.actions';
+import commonColor from '../../native-base-theme/variables/commonColor';
 import {useDispatch, shallowEqual, useSelector} from 'react-redux';
-import colors from '../config/colors';
-import GlobalStyles from '../config/styles';
+import colors from '../../config/colors';
+import GlobalStyles from '../../config/styles';
 
 const NewScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const token = useSelector(state => state.userReducer.token, shallowEqual);
   const jobs = useSelector(state => state.jobsReducer.jobs, shallowEqual);
+  const [unacceptedJobs, setUnacceptedJobs] = useState([]);
 
   useEffect(() => {
+    // console.log('jobs', jobs);
     if (!jobs) {
       dispatch(getAllJobs(token));
+    } else {
+      setUnacceptedJobs(jobs.filter(job => job.is_accepted === false));
     }
-    console.log('jobs :>> ', jobs);
   }, [dispatch, token, jobs]);
+
+  // console.log('unacceptedJobs :>> ', unacceptedJobs);
 
   return (
     <StyleProvider style={getTheme(commonColor)}>
@@ -28,7 +33,7 @@ const NewScreen = ({navigation}) => {
         <CustomHeader>New Jobs</CustomHeader>
         <View style={styles.jobsContainer}>
           <FlatList
-            data={jobs ? jobs.reverse() : null}
+            data={unacceptedJobs ? unacceptedJobs : null}
             keyExtractor={item => item.id}
             renderItem={({
               item,

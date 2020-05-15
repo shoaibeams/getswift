@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
 import {Icon} from 'native-base';
-import AcceptedScreen from './AcceptedScreen';
-import ArchivedScreen from './ArchivedScreen';
-import ProfileScreen from './ProfileScreen';
+import AcceptedScreen from './accepted/AcceptedScreen';
+import ArchivedScreen from './archived/ArchivedScreen';
+import ProfileScreen from './profile/ProfileScreen';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import colors from '../config/colors';
-import JobsScreen from './JobsScreen';
+import JobsScreen from './new/JobsScreen';
+import MapScreen from './accepted/MapScreen';
 
 const HomeScreen = () => {
   const Tab = createBottomTabNavigator();
@@ -17,7 +17,7 @@ const HomeScreen = () => {
         activeTintColor: colors.PRIMARY,
       }}>
       <Tab.Screen
-        name="Jobs"
+        name="New"
         component={JobsScreen}
         options={{
           tabBarIcon: ({focused, color}) => (
@@ -30,7 +30,6 @@ const HomeScreen = () => {
           ),
         }}
       />
-
       <Tab.Screen
         name="Accepted"
         component={AcceptedScreen}
@@ -45,6 +44,21 @@ const HomeScreen = () => {
           ),
         }}
       />
+
+      {/* <Tab.Screen
+        name="Map"
+        component={MapScreen}
+        options={{
+          tabBarIcon: ({focused, color}) => (
+            <Icon
+              name="star"
+              type={'FontAwesome'}
+              focused={focused}
+              style={{color}}
+            />
+          ),
+        }}
+      /> */}
       <Tab.Screen
         name="Archived"
         component={ArchivedScreen}
