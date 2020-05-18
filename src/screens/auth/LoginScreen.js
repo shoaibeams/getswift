@@ -28,7 +28,7 @@ const LoginScreen = ({navigation}) => {
   const dispatch = useDispatch();
   const userData = useSelector(state => state.userReducer.user);
 
-  const onSubmit = async formData => {
+  const onSubmit = async (formData, e) => {
     // console.log('formData :>> ', formData);
     dispatch(loginUser(formData));
     reset(formData);
@@ -36,16 +36,8 @@ const LoginScreen = ({navigation}) => {
 
   useEffect(() => {
     // console.log('userData', userData);
-    if (userData) {
-      if (userData.api_token) {
-        // console.log('Setting token');
-        // console.log('userData', userData);
-        dispatch(setApiToken(userData.api_token));
-        // console.log('userData :>> ', userData);
-      } else if (!userData.api_token && userData.error) {
-        // console.log('error', userData);
-        ToastAndroid.showWithGravity(userData.error, 3000, ToastAndroid.CENTER);
-      }
+    if (userData && userData.api_token) {
+      dispatch(setApiToken(userData.api_token));
     }
 
     register(

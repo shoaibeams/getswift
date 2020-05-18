@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {UserActionTypes} from './user.types';
 import axios from 'axios';
 import {config} from '../../config/config';
+import {ToastAndroid} from 'react-native';
 
 export const loginUser = formData => {
   return async dispatch => {
@@ -9,11 +10,19 @@ export const loginUser = formData => {
     const {
       data: {data},
     } = response;
-    // console.log('data', data);
+    console.log('data', data);
+
+    if (data.error) {
+      ToastAndroid.showWithGravity(data.error, 3000, ToastAndroid.CENTER);
+    }
 
     if (data.api_token) {
       await AsyncStorage.setItem('userData', JSON.stringify(data));
       await AsyncStorage.setItem('api_token', data.api_token);
+      dispatch({
+        type: UserActionTypes.GET_API_TOKEN,
+        payload: data.api_token,
+      });
     }
     dispatch({
       type: UserActionTypes.LOG_IN_USER,
@@ -22,10 +31,6 @@ export const loginUser = formData => {
     dispatch({
       type: UserActionTypes.GET_USER_DATA,
       payload: data,
-    });
-    dispatch({
-      type: UserActionTypes.GET_API_TOKEN,
-      payload: data.api_token,
     });
   };
 };
@@ -43,11 +48,16 @@ export const sendResetLinkEmail = email => {
     );
     const {data} = response;
 
+    console.log('data :>> ', data);
+
     if (data.success) {
+      ToastAndroid.showWithGravity(data.message, 3000, ToastAndroid.CENTER);
       dispatch({
         type: UserActionTypes.SEND_RESET_LINK_EMAIL,
         payload: data,
       });
+    } else if (data.data.error) {
+      ToastAndroid.showWithGravity(data.message, 3000, ToastAndroid.CENTER);
     }
   };
 };
@@ -79,8 +89,6 @@ export const setApiToken = api_token => {
 export const getApiToken = () => {
   return async dispatch => {
     const token = await AsyncStorage.getItem('api_token');
-
-    console.log('token action', token);
 
     dispatch({
       type: UserActionTypes.GET_API_TOKEN,

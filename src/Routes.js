@@ -13,20 +13,17 @@ import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 const Routes = () => {
   const Stack = createStackNavigator();
   const dispatch = useDispatch();
-  const token = useSelector(state => state.userReducer.token, shallowEqual);
+  const token = useSelector(state => state.userReducer.token);
 
   useEffect(() => {
     console.log('token :>> ', token);
     // AsyncStorage.clear();
-
+    SplashScreen.show();
     if (!token) {
       dispatch(getApiToken());
     }
     SplashScreen.hide();
 
-    if (token === undefined) {
-      SplashScreen.show();
-    }
     if (token || token === null) {
       SplashScreen.hide();
     }

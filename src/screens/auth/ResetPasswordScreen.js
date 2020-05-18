@@ -1,27 +1,23 @@
-import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, StatusBar, Text, ToastAndroid} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, View, StatusBar, Text} from 'react-native';
 import Button from '../../components/Button';
 import CustomInput from '../../components/CustomInput';
 import {useForm} from 'react-hook-form';
 import {
   sendResetLinkEmail,
-  clearState,
   clearResetLinkEmail,
 } from '../../redux/user/user.actions';
-import {useDispatch, useSelector, shallowEqual} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const ResetPasswordScreen = ({navigation}) => {
-  const {register, handleSubmit, setValue, errors} = useForm();
-  const [error, setError] = useState('');
+  const {register, handleSubmit, setValue, errors, reset} = useForm();
   const dispatch = useDispatch();
-  const resetPassword = useSelector(
-    state => state.userReducer.resetPassword,
-    shallowEqual,
-  );
+  const resetPassword = useSelector(state => state.userReducer.resetPassword);
 
   const onSubmit = async email => {
-    setError('');
     dispatch(sendResetLinkEmail(email));
+    reset(email);
+    navigation.pop();
   };
 
   useEffect(() => {
@@ -36,30 +32,10 @@ const ResetPasswordScreen = ({navigation}) => {
       },
     );
 
-    console.log('state', resetPassword);
-    if (resetPassword) {
-      if (resetPassword.data.error) {
-        ToastAndroid.showWithGravity(
-          resetPassword.message,
-          3000,
-          ToastAndroid.CENTER,
-        );
-        setError(resetPassword.message);
-      } else {
-        ToastAndroid.showWithGravity(
-          resetPassword.message,
-          3000,
-          ToastAndroid.CENTER,
-        );
-        dispatch(clearResetLinkEmail());
-        navigation.pop();
-      }
+    if (resetPassword && !resetPassword.data.error) {
+      dispatch(clearResetLinkEmail());
     }
   }, [register, navigation, resetPassword, dispatch]);
-
-  const handleEmailChange = email => {
-    setValue('email', email.trim());
-  };
 
   return (
     <View style={styles.container}>
@@ -68,7 +44,7 @@ const ResetPasswordScreen = ({navigation}) => {
       <CustomInput
         name="email"
         placeholder="Email Address"
-        onChangeText={handleEmailChange}
+        onChangeText={email => setValue('email', email.trim())}
       />
       <Text style={styles.error}>{errors.email?.message}</Text>
       <Text style={styles.infoText}>
