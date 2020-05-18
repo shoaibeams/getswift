@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface getswiftTests : XCTestCase
+@interface flowerfuldeliveryTests : XCTestCase
 
 @end
 
-@implementation getswiftTests
+@implementation flowerfuldeliveryTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

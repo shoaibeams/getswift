@@ -1,19 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {
-  StyleSheet,
-  Image,
-  View,
-  StatusBar,
-  Text,
-  Linking,
-  ToastAndroid,
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {StyleSheet, Image, View, StatusBar, Text, Linking} from 'react-native';
 import Button from '../../components/Button';
 import CustomInput from '../../components/CustomInput';
 import imageLogo from '../../assets/images/logo.png';
 import {useForm} from 'react-hook-form';
 import {loginUser, setApiToken} from '../../redux/user/user.actions';
 import {useDispatch, useSelector} from 'react-redux';
+import messaging from '@react-native-firebase/messaging';
 
 const LoginScreen = ({navigation}) => {
   const {
@@ -29,7 +22,10 @@ const LoginScreen = ({navigation}) => {
   const userData = useSelector(state => state.userReducer.user);
 
   const onSubmit = async (formData, e) => {
+    const token = await messaging().getToken();
+    formData.device_token = token;
     // console.log('formData :>> ', formData);
+
     dispatch(loginUser(formData));
     reset(formData);
   };

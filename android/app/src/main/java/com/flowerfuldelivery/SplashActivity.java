@@ -1,4 +1,4 @@
-package com.getswift; // Change this to your package name.
+package com.flowerfuldelivery; // Change this to your package name.
 
 import android.content.Intent;
 import android.os.Bundle;

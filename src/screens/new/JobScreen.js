@@ -9,7 +9,7 @@ import colors from '../../config/colors';
 import GlobalStyles from '../../config/styles';
 import Item from '../../components/Item';
 import {useDispatch, useSelector} from 'react-redux';
-import {acceptJob} from '../../redux/jobs/jobs.actions';
+import {acceptJob, rejectJob} from '../../redux/jobs/jobs.actions';
 
 const JobScreen = ({navigation, route}) => {
   const dispatch = useDispatch();
@@ -32,6 +32,16 @@ const JobScreen = ({navigation, route}) => {
     navigation.goBack();
     ToastAndroid.showWithGravity(
       'Job has been accepted successfully',
+      3000,
+      ToastAndroid.CENTER,
+    );
+  };
+
+  const rejectJobHandler = () => {
+    dispatch(rejectJob(token, id));
+    navigation.goBack();
+    ToastAndroid.showWithGravity(
+      'Job has been rejected successfully',
       3000,
       ToastAndroid.CENTER,
     );
@@ -73,12 +83,14 @@ const JobScreen = ({navigation, route}) => {
               assumenda repudiandae aperiam beatae ut vel.
             </Text>
           </Item>
-          <View style={{padding: 10}}>
-            <Button
-              onPress={acceptJobHandler}
-              // navigation.navigate('CheckList', route.params)}
-            >
+          <View style={styles.buttonsContainer}>
+            <Button onPress={acceptJobHandler} style={{width: '45%'}}>
               ACCEPT JOB
+            </Button>
+            <Button
+              onPress={rejectJobHandler}
+              style={{width: '45%', backgroundColor: colors.RED}}>
+              REJECT JOB
             </Button>
           </View>
         </View>
@@ -101,6 +113,11 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     paddingTop: 5,
     color: colors.GREEN,
+  },
+  buttonsContainer: {
+    flexDirection: 'row',
+    padding: 10,
+    justifyContent: 'space-between',
   },
 });
 

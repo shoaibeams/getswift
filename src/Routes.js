@@ -8,7 +8,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import {customHeader} from './config/ui';
 import HomeScreen from './screens/HomeScreen';
 import {getApiToken} from './redux/user/user.actions';
-import {useDispatch, useSelector, shallowEqual} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Routes = () => {
   const Stack = createStackNavigator();
@@ -16,14 +16,17 @@ const Routes = () => {
   const token = useSelector(state => state.userReducer.token);
 
   useEffect(() => {
-    console.log('token :>> ', token);
+    // console.log('token :>> ', token);
     // AsyncStorage.clear();
-    SplashScreen.show();
+
     if (!token) {
       dispatch(getApiToken());
     }
     SplashScreen.hide();
 
+    if (token === undefined) {
+      SplashScreen.show();
+    }
     if (token || token === null) {
       SplashScreen.hide();
     }

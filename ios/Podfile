@@ -44,8 +44,8 @@ def flipper_post_install(installer)
   end
 end
 
-target 'getswift' do
-  # Pods for getswift
+target 'flowerfuldelivery' do
+  # Pods for flowerfuldelivery
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -77,7 +77,7 @@ target 'getswift' do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  target 'getswiftTests' do
+  target 'flowerfuldeliveryTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -94,10 +94,10 @@ target 'getswift' do
   end
 end
 
-target 'getswift-tvOS' do
-  # Pods for getswift-tvOS
+target 'flowerfuldelivery-tvOS' do
+  # Pods for flowerfuldelivery-tvOS
 
-  target 'getswift-tvOSTests' do
+  target 'flowerfuldelivery-tvOSTests' do
     inherit! :search_paths
     # Pods for testing
   end

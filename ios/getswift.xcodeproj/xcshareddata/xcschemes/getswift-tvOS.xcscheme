@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "getswift-tvOS.app"
-               BlueprintName = "getswift-tvOS"
-               ReferencedContainer = "container:getswift.xcodeproj">
+               BuildableName = "flowerfuldelivery-tvOS.app"
+               BlueprintName = "flowerfuldelivery-tvOS"
+               ReferencedContainer = "container:flowerfuldelivery.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "getswift-tvOSTests.xctest"
-               BlueprintName = "getswift-tvOSTests"
-               ReferencedContainer = "container:getswift.xcodeproj">
+               BuildableName = "flowerfuldelivery-tvOSTests.xctest"
+               BlueprintName = "flowerfuldelivery-tvOSTests"
+               ReferencedContainer = "container:flowerfuldelivery.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "getswift-tvOS.app"
-            BlueprintName = "getswift-tvOS"
-            ReferencedContainer = "container:getswift.xcodeproj">
+            BuildableName = "flowerfuldelivery-tvOS.app"
+            BlueprintName = "flowerfuldelivery-tvOS"
+            ReferencedContainer = "container:flowerfuldelivery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "getswift-tvOS.app"
-            BlueprintName = "getswift-tvOS"
-            ReferencedContainer = "container:getswift.xcodeproj">
+            BuildableName = "flowerfuldelivery-tvOS.app"
+            BlueprintName = "flowerfuldelivery-tvOS"
+            ReferencedContainer = "container:flowerfuldelivery.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

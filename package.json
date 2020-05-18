@@ -1,5 +1,5 @@
 {
-  "name": "flowerful-delivery-app",
+  "name": "flowerfuldelivery",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,6 +12,8 @@
   "dependencies": {
     "@react-native-community/async-storage": "^1.10.0",
     "@react-native-community/masked-view": "^0.1.10",
+    "@react-native-firebase/app": "^7.0.1",
+    "@react-native-firebase/messaging": "^7.0.1",
     "@react-navigation/bottom-tabs": "^5.3.4",
     "@react-navigation/native": "^5.2.1",
     "@react-navigation/stack": "^5.2.16",

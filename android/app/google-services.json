@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "553817688164",
+    "firebase_url": "https://flowerful-delievery-app.firebaseio.com",
+    "project_id": "flowerful-delievery-app",
+    "storage_bucket": "flowerful-delievery-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553817688164:android:48951fb645fd2913ad3771",
+        "android_client_info": {
+          "package_name": "com.flowerfuldelivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553817688164-n95ritvn6k955scdiu9rmvcr77kvnjsp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI3zT3UASwGBj6S0jFTsEf04ss78fprtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553817688164-n95ritvn6k955scdiu9rmvcr77kvnjsp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
