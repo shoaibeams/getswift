@@ -4,6 +4,7 @@ import {config} from '../../config/config';
 
 export const getAllJobs = token => {
   return async dispatch => {
+    console.log('data :>> ', `${config.API_URL}/orders?api_token=${token}`);
     const response = await axios.get(
       `${config.API_URL}/orders?api_token=${token}`,
     );
@@ -30,6 +31,7 @@ export const acceptJob = (token, jobId) => {
     } = response;
 
     // console.log('data :>> ', data);
+
     dispatch({
       type: JobsActionTypes.ACCEPT_JOB,
       payload: data,

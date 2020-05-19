@@ -1,5 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, FlatList, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  FlatList,
+  TouchableOpacity,
+  Alert,
+} from 'react-native';
 import {Container, StyleProvider, Text} from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import CustomHeader from '../../components/CustomHeader';
@@ -9,6 +15,7 @@ import commonColor from '../../native-base-theme/variables/commonColor';
 import {useDispatch, shallowEqual, useSelector} from 'react-redux';
 import colors from '../../config/colors';
 import GlobalStyles from '../../config/styles';
+import messaging from '@react-native-firebase/messaging';
 
 const NewScreen = ({navigation}) => {
   const dispatch = useDispatch();
@@ -23,6 +30,12 @@ const NewScreen = ({navigation}) => {
     } else {
       setUnacceptedJobs(jobs.filter(job => job.is_accepted === false));
     }
+
+    const unsubscribe = messaging().onMessage(async remoteMessage => {
+      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+    });
+
+    return unsubscribe;
   }, [dispatch, token, jobs]);
 
   // console.log('unacceptedJobs :>> ', unacceptedJobs);
@@ -34,7 +47,7 @@ const NewScreen = ({navigation}) => {
         <View style={styles.jobsContainer}>
           <FlatList
             data={unacceptedJobs ? unacceptedJobs : null}
-            keyExtractor={item => item.id}
+            keyExtractor={item => item.id.toString()}
             renderItem={({
               item,
               item: {
