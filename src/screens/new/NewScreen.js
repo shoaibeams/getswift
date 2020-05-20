@@ -24,11 +24,11 @@ const NewScreen = ({navigation}) => {
   const [unacceptedJobs, setUnacceptedJobs] = useState([]);
 
   useEffect(() => {
-    // console.log('jobs', jobs);
+    console.log('jobs', jobs);
     if (!jobs) {
       dispatch(getAllJobs(token));
     } else {
-      setUnacceptedJobs(jobs.filter(job => job.is_accepted === false));
+      setUnacceptedJobs(jobs.filter(job => job.pivot.is_accepted == false));
     }
 
     const unsubscribe = messaging().onMessage(async remoteMessage => {
@@ -44,42 +44,49 @@ const NewScreen = ({navigation}) => {
     <StyleProvider style={getTheme(commonColor)}>
       <Container style={styles.container}>
         <CustomHeader>New Jobs</CustomHeader>
-        <View style={styles.jobsContainer}>
-          <FlatList
-            data={unacceptedJobs ? unacceptedJobs : null}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({
-              item,
-              item: {
-                id,
-                pick_up_addr,
-                drop_off_addr,
-                price,
-                created_at,
-                distance_in_kms,
-              },
-            }) => (
-              <TouchableOpacity onPress={() => navigation.push('Job', item)}>
-                <Item>
-                  <View style={styles.rightAlignedText}>
-                    <Text style={GlobalStyles.txtGrey}>JOB # {id}</Text>
-                    <Text style={GlobalStyles.txtGreen}>{created_at}</Text>
-                  </View>
 
-                  <Text>
-                    <Text style={GlobalStyles.txtGrey}>FROM:</Text>{' '}
-                    {pick_up_addr}
-                  </Text>
-                  <Text>
-                    <Text style={GlobalStyles.txtGrey}>TO:</Text>{' '}
-                    {drop_off_addr}
-                  </Text>
-                  <Text>{distance_in_kms} </Text>
-                  <Text style={GlobalStyles.txtGrey}>${price}</Text>
-                </Item>
-              </TouchableOpacity>
-            )}
-          />
+        <View style={styles.jobsContainer}>
+          {jobs === null ? (
+            <View style={GlobalStyles.centerText}>
+              <Text>No assigned jobs yet</Text>
+            </View>
+          ) : (
+            <FlatList
+              data={unacceptedJobs ? unacceptedJobs : null}
+              keyExtractor={item => item.id.toString()}
+              renderItem={({
+                item,
+                item: {
+                  id,
+                  pick_up_addr,
+                  drop_off_addr,
+                  price,
+                  created_at,
+                  distance_in_kms,
+                },
+              }) => (
+                <TouchableOpacity onPress={() => navigation.push('Job', item)}>
+                  <Item>
+                    <View style={styles.rightAlignedText}>
+                      <Text style={GlobalStyles.txtGrey}>JOB # {id}</Text>
+                      <Text style={GlobalStyles.txtGreen}>{created_at}</Text>
+                    </View>
+
+                    <Text>
+                      <Text style={GlobalStyles.txtGrey}>FROM:</Text>{' '}
+                      {pick_up_addr}
+                    </Text>
+                    <Text>
+                      <Text style={GlobalStyles.txtGrey}>TO:</Text>{' '}
+                      {drop_off_addr}
+                    </Text>
+                    <Text>{distance_in_kms} </Text>
+                    <Text style={GlobalStyles.txtGrey}>${price}</Text>
+                  </Item>
+                </TouchableOpacity>
+              )}
+            />
+          )}
         </View>
       </Container>
     </StyleProvider>
@@ -94,6 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.WHITE_SMOKE,
   },
+
   rightAlignedText: {
     flex: 1,
     flexDirection: 'row',

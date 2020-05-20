@@ -17,21 +17,30 @@ const AcceptedJobsListScreen = ({navigation}) => {
   const [acceptedJobs, setAcceptedJobs] = useState([]);
 
   useEffect(() => {
-    // console.log('jobs', jobs);
+    console.log('jobs', jobs);
     if (!jobs) {
       dispatch(getAllJobs(token));
     } else {
-      setAcceptedJobs(jobs.filter(job => job.is_accepted === true));
+      setAcceptedJobs(jobs.filter(job => job.pivot.is_accepted == true));
     }
   }, [dispatch, token, jobs]);
 
-  // console.log('acceptedJobs :>> ', acceptedJobs);
+  console.log('acceptedJobs :>> ', acceptedJobs);
 
   return (
     <StyleProvider style={getTheme(commonColor)}>
       <Container style={styles.container}>
         <CustomHeader>Accepted Jobs</CustomHeader>
-        <View style={styles.jobsContainer}>
+        {/* <View style={GlobalStyles.centerText}>
+          {acceptedJobs.length === 0 && <Text>No accepted jobs yet</Text>}
+        </View> */}
+        {acceptedJobs.length === 0 ? (
+          <View style={styles.jobsContainer}>
+            <View style={GlobalStyles.centerText}>
+              {acceptedJobs.length === 0 && <Text>No accepted jobs yet</Text>}
+            </View>
+          </View>
+        ) : (
           <FlatList
             data={acceptedJobs ? acceptedJobs : null}
             keyExtractor={item => item.id}
@@ -78,7 +87,7 @@ const AcceptedJobsListScreen = ({navigation}) => {
               </TouchableOpacity>
             )}
           />
-        </View>
+        )}
       </Container>
     </StyleProvider>
   );

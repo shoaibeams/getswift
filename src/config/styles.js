@@ -29,4 +29,9 @@ export default StyleSheet.create({
   txtGreen: {
     color: colors.GREEN,
   },
+  centerText: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

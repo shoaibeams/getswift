@@ -4,27 +4,35 @@ import {config} from '../../config/config';
 
 export const getAllJobs = token => {
   return async dispatch => {
-    console.log('data :>> ', `${config.API_URL}/orders?api_token=${token}`);
-    const response = await axios.get(
-      `${config.API_URL}/orders?api_token=${token}`,
-    );
+    try {
+      const response = await axios.get(
+        `${config.API_URL}/orders?api_token=${token}`,
+      );
+      const {
+        data: {data},
+      } = response;
 
-    const {
-      data: {data},
-    } = response;
+      // console.log('data :>> ', data);
 
-    dispatch({
-      type: JobsActionTypes.GET_ALL_JOBS,
-      payload: data,
-    });
+      dispatch({
+        type: JobsActionTypes.GET_ALL_JOBS,
+        payload: data,
+      });
+    } catch (e) {
+      dispatch({
+        type: JobsActionTypes.GET_ALL_JOBS,
+        payload: null,
+      });
+    }
   };
 };
 
-export const acceptJob = (token, jobId) => {
+export const acceptJob = (token, jobId, isAccepted) => {
   return async dispatch => {
     const response = await axios.post(`${config.API_URL}/job-accept?page=1`, {
       api_token: token,
       order_id: jobId,
+      is_accept: isAccepted,
     });
     const {
       data: {data},
@@ -32,29 +40,6 @@ export const acceptJob = (token, jobId) => {
 
     // console.log('data :>> ', data);
 
-    dispatch({
-      type: JobsActionTypes.ACCEPT_JOB,
-      payload: data,
-    });
-
-    dispatch({
-      type: JobsActionTypes.GET_ALL_JOBS,
-      payload: data,
-    });
-  };
-};
-
-export const rejectJob = (token, jobId) => {
-  return async dispatch => {
-    const response = await axios.post(`${config.API_URL}/job-reject?page=1`, {
-      api_token: token,
-      order_id: jobId,
-    });
-    const {
-      data: {data},
-    } = response;
-
-    console.log('data :>> ', data);
     dispatch({
       type: JobsActionTypes.ACCEPT_JOB,
       payload: data,

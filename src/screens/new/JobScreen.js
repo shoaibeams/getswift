@@ -9,7 +9,7 @@ import colors from '../../config/colors';
 import GlobalStyles from '../../config/styles';
 import Item from '../../components/Item';
 import {useDispatch, useSelector} from 'react-redux';
-import {acceptJob, rejectJob} from '../../redux/jobs/jobs.actions';
+import {acceptJob} from '../../redux/jobs/jobs.actions';
 
 const JobScreen = ({navigation, route}) => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const JobScreen = ({navigation, route}) => {
   // console.log('job', route.params);
 
   const acceptJobHandler = () => {
-    dispatch(acceptJob(token, id));
+    dispatch(acceptJob(token, id, 1));
     navigation.goBack();
     ToastAndroid.showWithGravity(
       'Job has been accepted successfully',
@@ -38,7 +38,7 @@ const JobScreen = ({navigation, route}) => {
   };
 
   const rejectJobHandler = () => {
-    dispatch(rejectJob(token, id));
+    dispatch(acceptJob(token, id, 0));
     navigation.goBack();
     ToastAndroid.showWithGravity(
       'Job has been rejected successfully',

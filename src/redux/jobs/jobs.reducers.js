@@ -8,8 +8,6 @@ const jobsReducer = (state = initialState, action) => {
       return {...state, jobs: action.payload};
     case JobsActionTypes.ACCEPT_JOB:
       return {...state, job: action.payload};
-    case JobsActionTypes.REJECT:
-      return {...state, job: action.payload};
     default:
       return state;
   }
