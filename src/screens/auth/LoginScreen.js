@@ -22,10 +22,9 @@ const LoginScreen = ({navigation}) => {
   const userData = useSelector(state => state.userReducer.user);
 
   const onSubmit = async (formData, e) => {
+    // console.log('formData :>> ', formData);
     const token = await messaging().getToken();
     formData.device_token = token;
-    // console.log('formData :>> ', formData);
-
     dispatch(loginUser(formData));
     reset(formData);
   };

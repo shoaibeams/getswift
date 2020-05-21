@@ -1,22 +1,19 @@
 import React, {useEffect} from 'react';
-import {View, Text, BackHandler, Image, AsyncStorage} from 'react-native';
+import {View, Text, BackHandler, Image} from 'react-native';
 import {StyleSheet} from 'react-native';
 import Button from '../../components/Button';
 import {useDispatch, useSelector, shallowEqual} from 'react-redux';
 import {Container, StyleProvider, Icon} from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import commonColor from '../../native-base-theme/variables/commonColor';
-import {getUserData, clearToken, signOutUser} from '../../redux/user/user.actions';
+import {getUserData, signOutUser} from '../../redux/user/user.actions';
 import CustomHeader from '../../components/CustomHeader';
 import colors from '../../config/colors';
 import GlobalStyles from '../../config/styles';
 
 const ProfileScreen = () => {
+  const userData = useSelector(state => state.userReducer.userData);
   const dispatch = useDispatch();
-  const userData = useSelector(
-    state => state.userReducer.userData,
-    shallowEqual,
-  );
 
   useEffect(() => {
     if (!userData) {
@@ -38,10 +35,6 @@ const ProfileScreen = () => {
     return true;
   };
 
-  const handleSignOut = async () => {
-    dispatch(signOutUser(userData.api_token));
-  };
-
   let name, id, thumb, avg_rating;
   if (userData) {
     name = userData.name;
@@ -50,7 +43,6 @@ const ProfileScreen = () => {
     const userMedia = userData.media.slice(-1);
     thumb = userMedia[0].thumb;
   }
-
 
   return (
     <StyleProvider style={getTheme(commonColor)}>
@@ -86,7 +78,9 @@ const ProfileScreen = () => {
               <Text style={GlobalStyles.linkText}>Location Setting</Text>
             </View>
           </View>
-          <Button onPress={handleSignOut}>SIGN OUT</Button>
+          <Button onPress={() => dispatch(signOutUser(userData.api_token))}>
+            SIGN OUT
+          </Button>
           <Text style={styles.btnBelowText}>
             officia aperiam Mollitia, optio{' '}
           </Text>

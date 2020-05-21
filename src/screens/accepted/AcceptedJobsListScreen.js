@@ -3,17 +3,17 @@ import {StyleSheet, View, FlatList, TouchableOpacity} from 'react-native';
 import {Container, StyleProvider, Text, Icon} from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import CustomHeader from '../../components/CustomHeader';
-import Item from '../../components/Item';
+import ListItem from '../../components/ListItem';
 import {getAllJobs} from '../../redux/jobs/jobs.actions';
 import commonColor from '../../native-base-theme/variables/commonColor';
-import {useDispatch, shallowEqual, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import colors from '../../config/colors';
 import GlobalStyles from '../../config/styles';
 
 const AcceptedJobsListScreen = ({navigation}) => {
   const dispatch = useDispatch();
-  const token = useSelector(state => state.userReducer.token, shallowEqual);
-  const jobs = useSelector(state => state.jobsReducer.jobs, shallowEqual);
+  const token = useSelector(state => state.userReducer.token);
+  const jobs = useSelector(state => state.jobsReducer.jobs);
   const [acceptedJobs, setAcceptedJobs] = useState([]);
 
   useEffect(() => {
@@ -31,9 +31,6 @@ const AcceptedJobsListScreen = ({navigation}) => {
     <StyleProvider style={getTheme(commonColor)}>
       <Container style={styles.container}>
         <CustomHeader>Accepted Jobs</CustomHeader>
-        {/* <View style={GlobalStyles.centerText}>
-          {acceptedJobs.length === 0 && <Text>No accepted jobs yet</Text>}
-        </View> */}
         {acceptedJobs.length === 0 ? (
           <View style={styles.jobsContainer}>
             <View style={GlobalStyles.centerText}>
@@ -57,7 +54,7 @@ const AcceptedJobsListScreen = ({navigation}) => {
             }) => (
               <TouchableOpacity
                 onPress={() => navigation.navigate('CheckList', item)}>
-                <Item>
+                <ListItem>
                   <View style={styles.rightAlignedText}>
                     <Text style={GlobalStyles.txtGrey}>JOB # {id}</Text>
                     <Text style={GlobalStyles.txtGreen}>{created_at}</Text>
@@ -83,7 +80,7 @@ const AcceptedJobsListScreen = ({navigation}) => {
                       />
                     </View>
                   </View>
-                </Item>
+                </ListItem>
               </TouchableOpacity>
             )}
           />

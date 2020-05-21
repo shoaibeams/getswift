@@ -3,7 +3,7 @@ import {View} from 'native-base';
 import {StyleSheet} from 'react-native';
 import colors from '../config/colors';
 
-const Item = ({children}) => {
+const ListItem = ({children}) => {
   return <View style={styles.item}>{children}</View>;
 };
 
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Item;
+export default ListItem;

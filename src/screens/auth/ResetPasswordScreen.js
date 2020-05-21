@@ -11,8 +11,8 @@ import {useDispatch, useSelector} from 'react-redux';
 
 const ResetPasswordScreen = ({navigation}) => {
   const {register, handleSubmit, setValue, errors, reset} = useForm();
-  const dispatch = useDispatch();
   const resetPassword = useSelector(state => state.userReducer.resetPassword);
+  const dispatch = useDispatch();
 
   const onSubmit = async email => {
     dispatch(sendResetLinkEmail(email));

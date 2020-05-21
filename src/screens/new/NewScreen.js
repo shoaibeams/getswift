@@ -9,7 +9,7 @@ import {
 import {Container, StyleProvider, Text} from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import CustomHeader from '../../components/CustomHeader';
-import Item from '../../components/Item';
+import ListItem from '../../components/ListItem';
 import {getAllJobs} from '../../redux/jobs/jobs.actions';
 import commonColor from '../../native-base-theme/variables/commonColor';
 import {useDispatch, shallowEqual, useSelector} from 'react-redux';
@@ -66,7 +66,7 @@ const NewScreen = ({navigation}) => {
                 },
               }) => (
                 <TouchableOpacity onPress={() => navigation.push('Job', item)}>
-                  <Item>
+                  <ListItem>
                     <View style={styles.rightAlignedText}>
                       <Text style={GlobalStyles.txtGrey}>JOB # {id}</Text>
                       <Text style={GlobalStyles.txtGreen}>{created_at}</Text>
@@ -82,7 +82,7 @@ const NewScreen = ({navigation}) => {
                     </Text>
                     <Text>{distance_in_kms} </Text>
                     <Text style={GlobalStyles.txtGrey}>${price}</Text>
-                  </Item>
+                  </ListItem>
                 </TouchableOpacity>
               )}
             />

@@ -7,7 +7,7 @@ import Button from '../../components/Button';
 import commonColor from '../../native-base-theme/variables/commonColor';
 import colors from '../../config/colors';
 import GlobalStyles from '../../config/styles';
-import Item from '../../components/Item';
+import ListItem from '../../components/ListItem';
 import {useDispatch, useSelector} from 'react-redux';
 import {acceptJob} from '../../redux/jobs/jobs.actions';
 
@@ -53,7 +53,7 @@ const JobScreen = ({navigation, route}) => {
         <CustomHeader>Job #{id}</CustomHeader>
         <Text style={styles.rightAlignedText}>{created_at}</Text>
         <View style={styles.jobsContainer}>
-          <Item>
+          <ListItem>
             <Text>
               <Text style={GlobalStyles.txtGrey}>FROM:</Text> {pick_up_addr}
             </Text>
@@ -65,16 +65,16 @@ const JobScreen = ({navigation, route}) => {
               {contact_phone}
             </Text>
             <Text>{distance_in_kms} away from you </Text>
-          </Item>
-          <Item>
+          </ListItem>
+          <ListItem>
             <Text>
               <Text style={GlobalStyles.txtGrey}>TO:</Text> Contact Name
             </Text>
             <Text>{contact_name}</Text>
             <Text>Regular Customer</Text>
             <Text>{drop_off_addr}</Text>
-          </Item>
-          <Item>
+          </ListItem>
+          <ListItem>
             <Text style={GlobalStyles.txtGrey}>Instructions</Text>
             <Text>
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -82,14 +82,12 @@ const JobScreen = ({navigation, route}) => {
               cupiditate eligendi facere exercitationem maiores quae hic
               assumenda repudiandae aperiam beatae ut vel.
             </Text>
-          </Item>
+          </ListItem>
           <View style={styles.buttonsContainer}>
             <Button onPress={acceptJobHandler} style={{width: '45%'}}>
               ACCEPT JOB
             </Button>
-            <Button
-              onPress={rejectJobHandler}
-              style={{width: '45%', backgroundColor: colors.RED}}>
+            <Button onPress={rejectJobHandler} style={styles.redButton}>
               REJECT JOB
             </Button>
           </View>
@@ -102,7 +100,6 @@ const JobScreen = ({navigation, route}) => {
 const styles = StyleSheet.create({
   jobsContainer: {
     flex: 1,
-    // padding: 10,
   },
   container: {
     flex: 1,
@@ -113,6 +110,10 @@ const styles = StyleSheet.create({
     paddingRight: 15,
     paddingTop: 5,
     color: colors.GREEN,
+  },
+  redButton: {
+    width: '45%',
+    backgroundColor: colors.RED,
   },
   buttonsContainer: {
     flexDirection: 'row',

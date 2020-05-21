@@ -1,15 +1,13 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-import {Content, Body, Card, CardItem, Text} from 'native-base';
+import {Content, Card, CardItem, Text} from 'native-base';
 
 const CustomCard = ({children}) => {
   return (
     <Content padder style={styles.container}>
       <Card>
         <CardItem>
-          {/* <Body> */}
           <Text>{children}</Text>
-          {/* </Body> */}
         </CardItem>
       </Card>
     </Content>
