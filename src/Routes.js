@@ -16,7 +16,6 @@ const Routes = () => {
   const token = useSelector(state => state.userReducer.token);
 
   useEffect(() => {
-    // console.log('token :>> ', token);
     // AsyncStorage.clear();
 
     if (!token) {

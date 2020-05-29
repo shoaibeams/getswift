@@ -19,7 +19,6 @@ const ProfileScreen = () => {
     if (!userData) {
       dispatch(getUserData());
     }
-    console.log('userData', userData);
 
     BackHandler.addEventListener('hardwareBackPress', handleBackButtonClick);
     return () => {

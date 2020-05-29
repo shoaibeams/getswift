@@ -10,7 +10,6 @@ export const loginUser = formData => {
     const {
       data: {data},
     } = response;
-    // console.log('data', data);
 
     if (data.error) {
       ToastAndroid.showWithGravity(data.error, 3000, ToastAndroid.CENTER);
@@ -48,8 +47,6 @@ export const sendResetLinkEmail = email => {
     );
     const {data} = response;
 
-    // console.log('data :>> ', data);
-
     if (data.success) {
       ToastAndroid.showWithGravity(data.message, 3000, ToastAndroid.CENTER);
       dispatch({
@@ -66,7 +63,6 @@ export const signUpUser = formData => {
   return async dispatch => {
     const response = await axios.post(`${config.API_URL}/register`, formData);
     const {data} = response;
-    // console.log('data :>> ', data);
     if (data.success) {
       dispatch({
         type: UserActionTypes.LOG_IN_USER,

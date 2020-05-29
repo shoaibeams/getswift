@@ -21,12 +21,10 @@ const SignatureScreen = ({route}) => {
       3000,
       ToastAndroid.CENTER,
     );
-    console.log(result);
   };
-  
-  const _onDragEvent = () => {
-    console.log('dragged');
-  };
+
+  const _onDragEvent = () => {};
+
   return (
     <StyleProvider style={getTheme(commonColor)}>
       <Container style={styles.container}>

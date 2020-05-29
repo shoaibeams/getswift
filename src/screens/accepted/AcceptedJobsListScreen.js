@@ -17,7 +17,6 @@ const AcceptedJobsListScreen = ({navigation}) => {
   const [acceptedJobs, setAcceptedJobs] = useState([]);
 
   useEffect(() => {
-    console.log('jobs', jobs);
     if (!jobs) {
       dispatch(getAllJobs(token));
     } else {
@@ -25,7 +24,6 @@ const AcceptedJobsListScreen = ({navigation}) => {
     }
   }, [dispatch, token, jobs]);
 
-  console.log('acceptedJobs :>> ', acceptedJobs);
 
   return (
     <StyleProvider style={getTheme(commonColor)}>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, View} from 'react-native';
-import {Container, StyleProvider, Text, Icon} from 'native-base';
+import {Container, StyleProvider, Text} from 'native-base';
 import getTheme from '../../native-base-theme/components';
 import CustomHeader from '../../components/CustomHeader';
 import Button from '../../components/Button';
@@ -17,11 +17,7 @@ const CheckListScreen = ({navigation, route: {params}}) => {
   const [jobItems, setJobItems] = useState(items);
   const [activeJobId, setActiveJobId] = useState(id);
 
-  // console.log('activeJobId', activeJobId);
   const nextJobItems = jobs.filter(job => job.id === activeJobId + 1);
-  // const [nextJob, setNextJobItem] = useState(nextJobItems);
-
-  // console.log('nextJob :>> ', nextJobItems);
 
   const updateJobItemsContent = () => {
     setJobItems(nextJobItems[0].items);
@@ -59,7 +55,6 @@ const CheckListScreen = ({navigation, route: {params}}) => {
 const styles = StyleSheet.create({
   jobsContainer: {
     flex: 1,
-    // padding: 10,
   },
   container: {
     flex: 1,

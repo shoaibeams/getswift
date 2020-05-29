@@ -13,10 +13,8 @@ const MapScreen = ({navigation}) => {
   const jobs = useSelector(state => state.jobsReducer.jobs);
 
   useEffect(() => {
-    console.log('jobs :>> ', jobs);
   }, [jobs]);
   const {pick_up_lat, pick_up_long} = jobs[0];
-  console.log('pick_up_lat :>> ', pick_up_lat);
 
   const {width, height} = Dimensions.get('window');
   const ASPECT_RATIO = width / height;
@@ -25,7 +23,6 @@ const MapScreen = ({navigation}) => {
   const LATITUDE_DELTA = 0.0922;
   const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-  console.log('asfas', LATITUDE, LONGITUDE, LATITUDE_DELTA, LONGITUDE_DELTA);
 
   return (
     <StyleProvider style={getTheme(commonColor)}>

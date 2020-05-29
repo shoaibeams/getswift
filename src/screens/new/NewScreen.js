@@ -24,7 +24,6 @@ const NewScreen = ({navigation}) => {
   const [unacceptedJobs, setUnacceptedJobs] = useState([]);
 
   useEffect(() => {
-    console.log('jobs', jobs);
     if (!jobs) {
       dispatch(getAllJobs(token));
     } else {
@@ -38,7 +37,6 @@ const NewScreen = ({navigation}) => {
     return unsubscribe;
   }, [dispatch, token, jobs]);
 
-  // console.log('unacceptedJobs :>> ', unacceptedJobs);
 
   return (
     <StyleProvider style={getTheme(commonColor)}>

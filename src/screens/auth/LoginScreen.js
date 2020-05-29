@@ -22,7 +22,6 @@ const LoginScreen = ({navigation}) => {
   const userData = useSelector(state => state.userReducer.user);
 
   const onSubmit = async (formData, e) => {
-    // console.log('formData :>> ', formData);
     const token = await messaging().getToken();
     formData.device_token = token;
     dispatch(loginUser(formData));
@@ -30,7 +29,6 @@ const LoginScreen = ({navigation}) => {
   };
 
   useEffect(() => {
-    // console.log('userData', userData);
     if (userData && userData.api_token) {
       dispatch(setApiToken(userData.api_token));
     }
@@ -104,7 +102,6 @@ const LoginScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'space-between',
     backgroundColor: '#fff',
     paddingLeft: 10,
     paddingRight: 10,
@@ -113,12 +110,11 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   logo: {
-    // flex: 1,
+    flex: 1,
     display: 'flex',
     width: '100%',
-    // justifyContent: 'center',
+    justifyContent: 'center',
     resizeMode: 'contain',
-    //   // alignSelf: 'center',
   },
   centerText: {
     textAlign: 'center',

@@ -25,8 +25,6 @@ const JobScreen = ({navigation, route}) => {
     distance_in_kms,
   } = route.params;
 
-  // console.log('job', route.params);
-
   const acceptJobHandler = () => {
     dispatch(acceptJob(token, id, 1));
     navigation.goBack();

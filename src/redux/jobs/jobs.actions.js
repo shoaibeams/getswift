@@ -12,8 +12,6 @@ export const getAllJobs = token => {
         data: {data},
       } = response;
 
-      // console.log('data :>> ', data);
-
       dispatch({
         type: JobsActionTypes.GET_ALL_JOBS,
         payload: data,
@@ -37,8 +35,6 @@ export const acceptJob = (token, jobId, isAccepted) => {
     const {
       data: {data},
     } = response;
-
-    // console.log('data :>> ', data);
 
     dispatch({
       type: JobsActionTypes.ACCEPT_JOB,
